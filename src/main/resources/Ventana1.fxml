@@ -17,9 +17,9 @@
 
 <Pane prefHeight="426.0" prefWidth="730.0" style="-fx-background-color: #13abf4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana1Controller">
    <children>
-      <Pane layoutY="25.0" prefHeight="30.0" prefWidth="730.0" style="-fx-background-color: #99eef1;">
+      <Pane layoutY="25.0" prefHeight="30.0" prefWidth="730.0" style="-fx-background-color: #bbf7f3;">
          <children>
-            <Text fontSmoothingType="LCD" layoutX="32.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select your Pokemon" wrappingWidth="176.0">
+            <Text fontSmoothingType="LCD" layoutX="32.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your Pokemon" wrappingWidth="176.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -29,7 +29,7 @@
             </Text>
             <Button id="button_exit" alignment="CENTER" layoutX="632.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="54.0" text="Exit" textAlignment="CENTER" />
          </children></Pane>
-      <GridPane layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="347.0" prefWidth="730.0" style="-fx-background-color: #99eef1;">
+      <GridPane layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="347.0" prefWidth="730.0" style="-fx-background-color: #bbf7f3;">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="255.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="255.0" />
@@ -58,7 +58,7 @@
                         <Font name="Agency FB" size="18.0" />
                      </font>
                   </Text>
-                  <ProgressBar id="pokemon_00_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" />
+                  <ProgressBar id="pokemon_00_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
                   <Text id="pokemon_00_level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
                      <font>
                         <Font name="Agency FB" size="18.0" />
@@ -102,7 +102,7 @@
                         <Font name="Agency FB" size="18.0" />
                      </font>
                   </Text>
-                  <ProgressBar id="pokemon_10_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" />
+                  <ProgressBar id="pokemon_10_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
                   <TextField alignment="CENTER" centerShape="false" layoutX="31.0" layoutY="115.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                      <font>
                         <Font size="13.0" />
@@ -141,7 +141,7 @@
                         <Font name="Agency FB" size="18.0" />
                      </font>
                   </Text>
-                  <ProgressBar id="pokemon_20_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" />
+                  <ProgressBar id="pokemon_20_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
                   <TextField alignment="CENTER" centerShape="false" layoutX="31.0" layoutY="115.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                      <font>
                         <Font size="13.0" />
@@ -186,7 +186,7 @@
                         <Font name="Agency FB" size="18.0" />
                      </font>
                   </Text>
-                  <ProgressBar id="pokemon_01_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" />
+                  <ProgressBar id="pokemon_01_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
                   <TextField alignment="CENTER" centerShape="false" layoutX="32.0" layoutY="114.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                      <font>
                         <Font size="13.0" />
@@ -219,7 +219,7 @@
                         <Font name="Agency FB" size="18.0" />
                      </font>
                   </Text>
-                  <ProgressBar id="pokemon_11_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" />
+                  <ProgressBar id="pokemon_11_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
                   <TextField alignment="CENTER" centerShape="false" layoutX="31.0" layoutY="115.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                      <font>
                         <Font size="13.0" />
@@ -264,7 +264,7 @@
                         <Font name="Agency FB" size="18.0" />
                      </font>
                   </Text>
-                  <ProgressBar id="pokemon_21_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" />
+                  <ProgressBar id="pokemon_21_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
                   <TextField alignment="CENTER" centerShape="false" layoutX="31.0" layoutY="115.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                      <font>
                         <Font size="13.0" />
@@ -272,7 +272,7 @@
                   </TextField>
                   <ImageView id="pokemon_10_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@gender_male.png" />
+                        <Image url="@gender_female.png" />
                      </image>
                   </ImageView>
                </children>
