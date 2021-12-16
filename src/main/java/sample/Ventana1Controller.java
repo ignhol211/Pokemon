@@ -9,10 +9,4 @@ import javafx.stage.StageStyle;
 
 public class Ventana1Controller {
 
-	@FXML
-	private void onButtonAbrirClicked() {
-		System.out.println("Botón pulsado");
-
-	}
-
 }
