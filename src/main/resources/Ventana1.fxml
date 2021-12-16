@@ -19,7 +19,7 @@
    <children>
       <Pane layoutY="25.0" prefHeight="30.0" prefWidth="730.0" style="-fx-background-color: #bbf7f3;">
          <children>
-            <Text fontSmoothingType="LCD" layoutX="32.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your Pokemon" wrappingWidth="176.0">
+            <Text fontSmoothingType="LCD" layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your Pokemon" wrappingWidth="206.0">
                <font>
                   <Font size="18.0" />
                </font>
