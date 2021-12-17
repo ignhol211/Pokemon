@@ -6,14 +6,15 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class App extends Application {
+import java.util.ArrayList;
 
+public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
             System.out.println("Empezando");
             BorderPane root = FXMLLoader.load(getClass().getResource("/Ventana1.fxml"));
-            Scene scene = new Scene(root,450,400);
+            Scene scene = new Scene(root,730,426);
             primaryStage.setScene(scene);
             primaryStage.show();
             primaryStage.setResizable(false);
@@ -26,3 +27,4 @@ public class App extends Application {
         launch(args);
     }
 }
+
