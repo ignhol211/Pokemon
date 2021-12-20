@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -51,9 +50,6 @@
                   <Pane id="pokemon_00" onMouseClicked="#onPokemonSelected" onMouseEntered="#onPokemonEntered" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <ImageView id="pokemon_00_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@charmander.png" />
-                           </image>
                            <effect>
                               <DropShadow />
                            </effect>
@@ -74,11 +70,7 @@
                               <Font size="13.0" />
                            </font>
                         </TextField>
-                        <ImageView id="pokemon_00_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@gender_male.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView id="pokemon_00_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -90,9 +82,6 @@
                   <Pane id="pokemon_10" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
                         <ImageView id="pokemon_10_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@squirtle.png" />
-                           </image>
                            <effect>
                               <DropShadow />
                            </effect>
@@ -113,11 +102,7 @@
                               <Font size="13.0" />
                            </font>
                         </TextField>
-                        <ImageView id="pokemon_10_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@gender_male.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView id="pokemon_10_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -129,9 +114,6 @@
                   <Pane id="pokemon_20" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <children>
                         <ImageView id="pokemon_20_image" fitHeight="85.0" fitWidth="170.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@bulbasaur.png" />
-                           </image>
                            <effect>
                               <DropShadow />
                            </effect>
@@ -152,11 +134,7 @@
                               <Font size="13.0" />
                            </font>
                         </TextField>
-                        <ImageView id="pokemon_20_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@gender_male.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView id="pokemon_20_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -174,9 +152,6 @@
                      </padding>
                      <children>
                         <ImageView id="pokemon_01_image" fitHeight="85.0" fitWidth="120.0" layoutX="63.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@cyndaquil.png" />
-                           </image>
                            <effect>
                               <DropShadow />
                            </effect>
@@ -197,19 +172,12 @@
                               <Font size="13.0" />
                            </font>
                         </TextField>
-                        <ImageView id="pokemon_01_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@gender_male.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView id="pokemon_01_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </Pane>
                   <Pane id="pokemon_11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <ImageView id="pokemon_11_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@totodile.png" />
-                           </image>
                            <effect>
                               <DropShadow />
                            </effect>
@@ -230,11 +198,7 @@
                               <Font size="13.0" />
                            </font>
                         </TextField>
-                        <ImageView id="pokemon_11_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@gender_male.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView id="pokemon_11_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -252,9 +216,6 @@
                      </padding>
                      <children>
                         <ImageView id="pokemon:21_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@chikorita.png" />
-                           </image>
                            <effect>
                               <DropShadow />
                            </effect>
@@ -275,11 +236,7 @@
                               <Font size="13.0" />
                            </font>
                         </TextField>
-                        <ImageView id="pokemon_10_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@gender_female.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView id="pokemon_10_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </Pane>
                </children>

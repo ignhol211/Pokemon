@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.image.Image;
+
 public class Pokemon {
 
     private final int MAX_HEALTH_POINTS;
@@ -8,11 +10,12 @@ public class Pokemon {
     private int level;
     private int health_points;
     private String gender;
-    private int min_attack;
-    private int max_attack;
-    private int defense;
+    private final int min_attack;
+    private final int max_attack;
+    private final int defense;
+    private final Image foto;
 
-    public Pokemon(String name, int level, int max_health_points, String gender,int min_attack, int max_attack, int defense) {
+    public Pokemon(String name, int level, int max_health_points, String gender,int min_attack, int max_attack, int defense,Image foto) {
 
         MAX_HEALTH_POINTS = max_health_points;
 
@@ -23,6 +26,7 @@ public class Pokemon {
         this.min_attack = min_attack;
         this.max_attack = max_attack;
         this.defense = defense;
+        this.foto = foto;
     }
 
     public String getName() {
@@ -63,6 +67,10 @@ public class Pokemon {
 
     public int getDefense(){
         return defense;
+    }
+
+    public Image getFoto() {
+        return foto;
     }
 
     public void attack(Pokemon pokemon){
