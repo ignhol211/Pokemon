@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana1Controller">
+<BorderPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana1Controller">
    <center>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="730.0" style="-fx-background-color: #13abf4;">
          <children>
@@ -47,7 +47,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <Pane id="pokemon_00" onMouseClicked="#onPokemonSelected" onMouseEntered="#onPokemonEntered" prefHeight="200.0" prefWidth="200.0">
+                  <Pane id="pokemon_00" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <ImageView id="pokemon_00_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
@@ -182,7 +182,7 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Text boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text id="pokemon_11_name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
@@ -215,12 +215,12 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                      <children>
-                        <ImageView id="pokemon:21_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="pokemon_21_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Text id="pokemon_21_name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text id="pokemon_21_image" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
