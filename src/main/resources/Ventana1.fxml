@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Bloom?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana1Controller">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana1Controller">
    <center>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="730.0" style="-fx-background-color: #13abf4;">
          <children>
@@ -30,7 +23,7 @@
                      </effect>
                   </Text>
                   <Button id="button_exit" alignment="CENTER" layoutX="632.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Exit" textAlignment="CENTER" />
-                  <Button id="button_continue" alignment="CENTER" layoutX="557.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Continue" textAlignment="CENTER" />
+                  <Button id="button_continue" alignment="CENTER" layoutX="557.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Continue" textAlignment="CENTER" visible="false" />
                </children>
             </Pane>
             <GridPane layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="347.0" prefWidth="730.0" style="-fx-background-color: #bbf7f3;">
@@ -47,20 +40,23 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <Pane id="pokemon_00" prefHeight="200.0" prefWidth="200.0">
+                  <Pane onMouseClicked="#pokemon00Selected" fx:id="pokemon_00" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ImageView id="pokemon_00_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="pokemon_00image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@charmander.png" />
+                           </image>
                            <effect>
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Text id="pokemon_00_name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_00name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <ProgressBar id="pokemon_00_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
-                        <Text id="pokemon_00_level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <ProgressBar fx:id="pokemon_00health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="NaN" style="-fx-accent: #2cd50e;" />
+                        <Text fx:id="pokemon_00level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
@@ -79,24 +75,27 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                   </Pane>
-                  <Pane id="pokemon_10" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                  <Pane onMouseClicked="#pokemon10Selected" fx:id="pokemon_10" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <ImageView id="pokemon_10_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="pokemon_10image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
+                           <image>
+                              <Image url="@squirtle.png" />
+                           </image>
                         </ImageView>
-                        <Text id="pokemon_10_name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_10name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <Text id="pokemon_10_level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_10level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <ProgressBar id="pokemon_10_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
+                        <ProgressBar fx:id="pokemon_10health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="NaN" style="-fx-accent: #2cd50e;" />
                         <TextField alignment="CENTER" centerShape="false" layoutX="31.0" layoutY="115.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                            <font>
                               <Font size="13.0" />
@@ -111,24 +110,27 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                   </Pane>
-                  <Pane id="pokemon_20" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                  <Pane fx:id="pokemon_20" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <children>
-                        <ImageView id="pokemon_20_image" fitHeight="85.0" fitWidth="170.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="pokemon_20image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
+                           <image>
+                              <Image url="@bulbasaur.png" />
+                           </image>
                         </ImageView>
-                        <Text id="pokemon_20_name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_20name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <Text id="pokemon_20_level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_20level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <ProgressBar id="pokemon_20_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
+                        <ProgressBar fx:id="pokemon_20health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="NaN" style="-fx-accent: #2cd50e;" />
                         <TextField alignment="CENTER" centerShape="false" layoutX="31.0" layoutY="115.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                            <font>
                               <Font size="13.0" />
@@ -143,7 +145,7 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                   </Pane>
-                  <Pane id="pokemon_01" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <Pane fx:id="pokemon_01" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -151,22 +153,25 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                      <children>
-                        <ImageView id="pokemon_01_image" fitHeight="85.0" fitWidth="120.0" layoutX="63.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="pokemon_01image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
+                           <image>
+                              <Image url="@cyndaquil.png" />
+                           </image>
                         </ImageView>
-                        <Text id="pokemon_01_name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_01name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <Text id="pokemon_01_level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_01level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <ProgressBar id="pokemon_01_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
+                        <ProgressBar fx:id="pokemon_01health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="NaN" style="-fx-accent: #2cd50e;" />
                         <TextField alignment="CENTER" centerShape="false" layoutX="32.0" layoutY="114.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                            <font>
                               <Font size="13.0" />
@@ -175,24 +180,27 @@
                         <ImageView id="pokemon_01_gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </Pane>
-                  <Pane id="pokemon_11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Pane fx:id="pokemon_11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <ImageView id="pokemon_11_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="pokemon_11image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
+                           <image>
+                              <Image url="@totodile.png" />
+                           </image>
                         </ImageView>
-                        <Text id="pokemon_11_name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_11name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <Text id="pokemon_11_level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_11level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <ProgressBar id="pokemon_11_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
+                        <ProgressBar fx:id="pokemon_11health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="NaN" style="-fx-accent: #2cd50e;" />
                         <TextField alignment="CENTER" centerShape="false" layoutX="31.0" layoutY="115.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                            <font>
                               <Font size="13.0" />
@@ -207,7 +215,7 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                   </Pane>
-                  <Pane id="pokemon_21" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Pane fx:id="pokemon_21" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -215,22 +223,25 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                      <children>
-                        <ImageView id="pokemon_21_image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="pokemon_21image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
+                           <image>
+                              <Image url="@chikorita.png" />
+                           </image>
                         </ImageView>
-                        <Text id="pokemon_21_image" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_21name" boundsType="VISUAL" layoutX="23.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <Text id="pokemon_21_level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
+                        <Text fx:id="pokemon_21level" boundsType="VISUAL" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
                               <Font name="Agency FB" size="18.0" />
                            </font>
                         </Text>
-                        <ProgressBar id="pokemon_21_health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="1.0" style="-fx-accent: #2cd50e;" />
+                        <ProgressBar fx:id="pokemon_21health" layoutX="54.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="122.0" progress="NaN" style="-fx-accent: #2cd50e;" />
                         <TextField alignment="CENTER" centerShape="false" layoutX="31.0" layoutY="115.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                            <font>
                               <Font size="13.0" />

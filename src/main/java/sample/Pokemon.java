@@ -29,6 +29,7 @@ public class Pokemon {
         this.max_attack = max_attack;
         this.defense = defense;
         this.image = image;
+
     }
 
     public String getName() {
@@ -71,9 +72,7 @@ public class Pokemon {
         return defense;
     }
 
-    public File getImage() {
-        return image;
-    }
+    public File getImage() { return image; }
 
     public void attack(Pokemon pokemon){
         System.out.println(this.getName()+" attacks "+pokemon.getName());
