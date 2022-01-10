@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.InnerShadow;
@@ -24,6 +25,9 @@ public class Ventana1Controller {
     Pokemon pokemon4 = new Pokemon ("Cyndaquil",5,30,"male",5,9,1,new File("src\\main\\resources\\cyndaquil.png"));
     Pokemon pokemon5 = new Pokemon ("Totodile",5,20,"male",8,10,3,new File("src\\main\\resources\\totodile.png"));
     Pokemon pokemon6 = new Pokemon ("Chikorita",5,35,"female",5,7,3,new File("src\\main\\resources\\chikorita.png"));
+
+    @FXML
+    Button button_continue;
 
     //Pokemon´s names
     @FXML
@@ -123,23 +127,88 @@ public class Ventana1Controller {
 
     @FXML
     public void pokemon00Selected() {
+        showButtonContinue();
         pokemon_00.setStyle("-fx-background-color:  #13abf4;");
-        pokemon_10.setBackground(null);
-        pokemon_20.setBackground(null);
-        pokemon_01.setBackground(null);
-        pokemon_11.setBackground(null);
-        pokemon_21.setBackground(null);
+        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
 
     }
 
     @FXML
     public void pokemon10Selected() {
-        pokemon_00.setBackground(null);
+        showButtonContinue();
+        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_10.setStyle("-fx-background-color:  #13abf4;");
-        pokemon_20.setBackground(null);
-        pokemon_01.setBackground(null);
-        pokemon_11.setBackground(null);
-        pokemon_21.setBackground(null);
+        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
 
+    }
+
+    @FXML
+    public void pokemon20Selected() {
+        showButtonContinue();
+        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_20.setStyle("-fx-background-color:  #13abf4;");
+        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+
+    }
+
+    @FXML
+    public void pokemon01Selected() {
+        showButtonContinue();
+        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_01.setStyle("-fx-background-color:  #13abf4;");
+        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+
+    }
+
+    @FXML
+    public void pokemon11Selected() {
+        showButtonContinue();
+        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_11.setStyle("-fx-background-color:  #13abf4;");
+        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+
+    }
+
+    @FXML
+    public void pokemon21Selected() {
+        showButtonContinue();
+        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_21.setStyle("-fx-background-color:  #13abf4;");
+
+    }
+
+    @FXML
+    private void reset(){
+        button_continue.setVisible(false);
+        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+    }
+
+    public void showButtonContinue(){
+        button_continue.setVisible(true);
     }
 }
