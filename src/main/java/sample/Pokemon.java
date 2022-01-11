@@ -15,9 +15,9 @@ public class Pokemon {
     private final int min_attack;
     private final int max_attack;
     private final int defense;
-    private final File image;
+    private final Image image;
 
-    public Pokemon(String name, int level, int max_health_points, String gender, int min_attack, int max_attack, int defense, File image) {
+    public Pokemon(String name, int level, int max_health_points, String gender, int min_attack, int max_attack, int defense, Image image) {
 
         MAX_HEALTH_POINTS = max_health_points;
 
@@ -72,7 +72,7 @@ public class Pokemon {
         return defense;
     }
 
-    public File getImage() { return image; }
+    public Image getImage() { return image; }
 
     public void attack(Pokemon pokemon){
         System.out.println(this.getName()+" attacks "+pokemon.getName());

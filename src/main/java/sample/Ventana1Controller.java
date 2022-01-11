@@ -3,28 +3,40 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.effect.Effect;
-import javafx.scene.effect.InnerShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Ventana1Controller {
 
     private final String LEVEL = "Lv ";
 
-    ArrayList <Pokemon> pokemonArrayList = new ArrayList <Pokemon>();
+    ArrayList <Pokemon> pokemonArrayList = new ArrayList<>();
 
-    Pokemon pokemon1 = new Pokemon ("Charmander",5,35,"male",6,10,1,new File("\"src\\\\main\\\\resources\\\\charmander.png"));
-    Pokemon pokemon2 = new Pokemon ("Squirtle",5,30,"male",5,8,3,new File("src\\main\\resources\\squirtle.png"));
-    Pokemon pokemon3 = new Pokemon ("Bulbasaur",5,25,"male",7,9,2,new File("src\\main\\resources\\bulbasaur.png"));
-    Pokemon pokemon4 = new Pokemon ("Cyndaquil",5,30,"male",5,9,1,new File("src\\main\\resources\\cyndaquil.png"));
-    Pokemon pokemon5 = new Pokemon ("Totodile",5,20,"male",8,10,3,new File("src\\main\\resources\\totodile.png"));
-    Pokemon pokemon6 = new Pokemon ("Chikorita",5,35,"female",5,7,3,new File("src\\main\\resources\\chikorita.png"));
+    Pokemon pokemon1;
+    Pokemon pokemon2;
+    Pokemon pokemon3;
+    Pokemon pokemon4;
+    Pokemon pokemon5;
+    Pokemon pokemon6;
+
+    {
+        try {
+            pokemon1 = new Pokemon ("Charmander",5,35,"male",6,10,1,new Image(new FileInputStream(".\\src\\main\\resources\\charmander.png")));
+            pokemon2 = new Pokemon ("Squirtle",5,30,"male",5,8,3,new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.png")));
+            pokemon3 = new Pokemon ("Bulbasaur",5,25,"male",7,9,2,new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.png")));
+            pokemon4 = new Pokemon ("Cyndaquil",5,30,"male",5,9,1,new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.png")));
+            pokemon5 = new Pokemon ("Totodile",5,20,"male",8,10,3,new Image(new FileInputStream(".\\src\\main\\resources\\totodile.png")));
+            pokemon6 = new Pokemon ("Chikorita",5,35,"female",5,7,3,new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.png")));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     Button button_continue;
@@ -56,6 +68,20 @@ public class Ventana1Controller {
     Text pokemon_11level;
     @FXML
     Text pokemon_21level;
+
+    //Pokemon´s image
+    @FXML
+    ImageView pokemon_00image;
+    @FXML
+    ImageView pokemon_10image;
+    @FXML
+    ImageView pokemon_20image;
+    @FXML
+    ImageView pokemon_01image;
+    @FXML
+    ImageView pokemon_11image;
+    @FXML
+    ImageView pokemon_21image;
 
     //Pokemon´s health
     @FXML
@@ -102,6 +128,14 @@ public class Ventana1Controller {
         pokemon_01name.setText(pokemonArrayList.get(3).getName());
         pokemon_11name.setText(pokemonArrayList.get(4).getName());
         pokemon_21name.setText(pokemonArrayList.get(5).getName());
+
+        //Pokemon´s image
+        pokemon_00image.setImage(pokemon1.getImage());
+        pokemon_10image.setImage(pokemon2.getImage());
+        pokemon_20image.setImage(pokemon3.getImage());
+        pokemon_01image.setImage(pokemon4.getImage());
+        pokemon_11image.setImage(pokemon5.getImage());
+        pokemon_21image.setImage(pokemon6.getImage());
 
         //Pokemon´s level
         pokemon_00level.setText(LEVEL + pokemonArrayList.get(0).getLevel());

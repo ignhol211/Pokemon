@@ -42,9 +42,6 @@
                   <Pane fx:id="pokemon_00" onMouseClicked="#pokemon00Selected" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <ImageView fx:id="pokemon_00image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@charmander.png" />
-                           </image>
                            <effect>
                               <DropShadow />
                            </effect>
@@ -76,13 +73,10 @@
                   </Pane>
                   <Pane fx:id="pokemon_10" onMouseClicked="#pokemon10Selected" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <ImageView id="pokemon_10image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="pokemon_10image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
-                           <image>
-                              <Image url="@squirtle.png" />
-                           </image>
                         </ImageView>
                         <Text fx:id="pokemon_10name" boundsType="VISUAL" layoutX="15.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
@@ -111,13 +105,10 @@
                   </Pane>
                   <Pane fx:id="pokemon_20" onMouseClicked="#pokemon20Selected" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <children>
-                        <ImageView id="pokemon_20image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="pokemon_20image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
-                           <image>
-                              <Image url="@bulbasaur.png" />
-                           </image>
                         </ImageView>
                         <Text fx:id="pokemon_20name" boundsType="VISUAL" layoutX="15.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
@@ -152,13 +143,10 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                      <children>
-                        <ImageView id="pokemon_01image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="pokemon_01image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
-                           <image>
-                              <Image url="@cyndaquil.png" />
-                           </image>
                         </ImageView>
                         <Text fx:id="pokemon_01name" boundsType="VISUAL" layoutX="15.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
@@ -181,13 +169,10 @@
                   </Pane>
                   <Pane fx:id="pokemon_11" onMouseClicked="#pokemon11Selected" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <ImageView id="pokemon_11image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="pokemon_11image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
-                           <image>
-                              <Image url="@totodile.png" />
-                           </image>
                         </ImageView>
                         <Text fx:id="pokemon_11name" boundsType="VISUAL" layoutX="15.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
@@ -222,13 +207,10 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                      <children>
-                        <ImageView id="pokemon_21image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="pokemon_21image" fitHeight="85.0" fitWidth="120.0" layoutX="76.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <DropShadow />
                            </effect>
-                           <image>
-                              <Image url="@chikorita.png" />
-                           </image>
                         </ImageView>
                         <Text fx:id="pokemon_21name" boundsType="VISUAL" layoutX="15.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                            <font>
