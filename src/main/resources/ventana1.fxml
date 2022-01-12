@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana1Controller">
+<BorderPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana1Controller">
    <center>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="730.0" style="-fx-background-color: #13abf4;">
          <children>
@@ -21,8 +21,8 @@
                         <Bloom />
                      </effect>
                   </Text>
-                  <Button id="button_exit" alignment="CENTER" layoutX="632.0" mnemonicParsing="false" onMouseClicked="#reset" prefHeight="30.0" prefWidth="70.0" text="Exit" textAlignment="CENTER" />
-                  <Button fx:id="button_continue" alignment="CENTER" layoutX="557.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Continue" textAlignment="CENTER" visible="false" />
+                  <Button id="button_exit" onMouseClicked="#reset" alignment="CENTER" layoutX="632.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Exit" textAlignment="CENTER" />
+                  <Button fx:id="button_continue" onMouseClicked="#openBattlefield" alignment="CENTER" layoutX="557.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Continue" textAlignment="CENTER" visible="false" />
                </children>
             </Pane>
             <GridPane layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="347.0" prefWidth="730.0" style="-fx-background-color: #bbf7f3;">

@@ -1,12 +1,16 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,6 +19,7 @@ import java.util.ArrayList;
 public class Ventana1Controller {
 
     private final String LEVEL = "Lv ";
+    private Pokemon pokemonToFigth = null;
 
     ArrayList <Pokemon> pokemonArrayList = new ArrayList<>();
 
@@ -168,6 +173,7 @@ public class Ventana1Controller {
         pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemonToFigth = pokemonArrayList.get(0);
 
     }
 
@@ -180,6 +186,7 @@ public class Ventana1Controller {
         pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemonToFigth = pokemonArrayList.get(1);
 
     }
 
@@ -192,6 +199,7 @@ public class Ventana1Controller {
         pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemonToFigth = pokemonArrayList.get(2);
 
     }
 
@@ -204,6 +212,7 @@ public class Ventana1Controller {
         pokemon_01.setStyle("-fx-background-color:  #13abf4;");
         pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemonToFigth = pokemonArrayList.get(3);
 
     }
 
@@ -216,6 +225,7 @@ public class Ventana1Controller {
         pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_11.setStyle("-fx-background-color:  #13abf4;");
         pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        pokemonToFigth = pokemonArrayList.get(4);
 
     }
 
@@ -228,12 +238,13 @@ public class Ventana1Controller {
         pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_21.setStyle("-fx-background-color:  #13abf4;");
+        pokemonToFigth = pokemonArrayList.get(5);
 
     }
 
     @FXML
     private void reset(){
-        button_continue.setVisible(false);
+        hideButtonContinue();
         pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
         pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
@@ -245,4 +256,32 @@ public class Ventana1Controller {
     public void showButtonContinue(){
         button_continue.setVisible(true);
     }
+    public void hideButtonContinue(){
+        button_continue.setVisible(false);
+    }
+
+    //Battlefield elements
+    private Ventana2Controller v2c = null;
+    private Stage stage = null;
+
+    @FXML
+    protected void openBattlefield(){
+        try{
+            stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ventana2.fxml"));
+            BorderPane root = loader.load();
+            Scene scene = new Scene(root,500,500);
+            stage.setScene(scene);
+            stage.show();
+            System.out.println(v2c.getClass());
+            v2c = loader.getController();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        v2c.loadBattlefield(pokemonToFigth);
+
+    }
+
 }
