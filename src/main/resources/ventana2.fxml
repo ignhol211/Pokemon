@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana2Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana2Controller">
    <center>
-      <Button mnemonicParsing="false" text="Button" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="312.0" prefWidth="715.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="340.0" fitWidth="740.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@battlefield.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="oponent_image" fitHeight="138.0" fitWidth="162.0" layoutX="465.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+            </ImageView>
+            <Pane layoutX="14.0" layoutY="84.0" opacity="0.5" prefHeight="55.0" prefWidth="305.0" style="-fx-background-color: white;">
+               <children>
+                  <Text fx:id="oponent_name" boundsType="VISUAL" layoutX="11.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="oponent_level" boundsType="VISUAL" layoutX="233.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField alignment="CENTER" centerShape="false" editable="false" layoutX="77.0" layoutY="28.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <ProgressBar fx:id="oponent_health" layoutX="100.0" layoutY="28.0" prefHeight="20.0" prefWidth="200.0" progress="0.0" style="-fx-accent: #2cd50e;" />
+                  <ImageView fx:id="oponent_gender" fitHeight="17.0" fitWidth="17.0" layoutX="239.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+               </children></Pane>
+            <Pane layoutY="340.0" prefHeight="62.0" prefWidth="729.0" style="-fx-background-color: purple;" />
+            <Pane layoutX="410.0" layoutY="275.0" opacity="0.5" prefHeight="55.0" prefWidth="305.0" style="-fx-background-color: white;">
+               <children>
+                  <Text fx:id="fightingPokemon_name" boundsType="VISUAL" layoutX="11.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="fightingPokemon_level" boundsType="VISUAL" layoutX="233.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField alignment="CENTER" centerShape="false" editable="false" layoutX="77.0" layoutY="28.0" prefHeight="10.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <ProgressBar layoutX="100.0" layoutY="28.0" prefHeight="20.0" prefWidth="200.0" progress="0.0" style="-fx-accent: #2cd50e;" />
+                  <ImageView fx:id="oponent_gender1" fitHeight="16.0" fitWidth="16.0" layoutX="239.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
    </center>
 </BorderPane>

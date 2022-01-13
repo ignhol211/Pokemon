@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 public class Ventana1Controller {
 
-    private final String LEVEL = "Lv ";
+    public static final String LEVEL = "Lv ";
     private Pokemon pokemonToFigth = null;
 
     ArrayList <Pokemon> pokemonArrayList = new ArrayList<>();
@@ -32,12 +33,12 @@ public class Ventana1Controller {
 
     {
         try {
-            pokemon1 = new Pokemon ("Charmander",5,35,"male",6,10,1,new Image(new FileInputStream(".\\src\\main\\resources\\charmander.png")));
-            pokemon2 = new Pokemon ("Squirtle",5,30,"male",5,8,3,new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.png")));
-            pokemon3 = new Pokemon ("Bulbasaur",5,25,"male",7,9,2,new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.png")));
-            pokemon4 = new Pokemon ("Cyndaquil",5,30,"male",5,9,1,new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.png")));
-            pokemon5 = new Pokemon ("Totodile",5,20,"male",8,10,3,new Image(new FileInputStream(".\\src\\main\\resources\\totodile.png")));
-            pokemon6 = new Pokemon ("Chikorita",5,35,"female",5,7,3,new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.png")));
+            pokemon1 = new Pokemon ("Charmander",5,35,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\charmander.png")));
+            pokemon2 = new Pokemon ("Squirtle",5,30,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.png")));
+            pokemon3 = new Pokemon ("Bulbasaur",5,25,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.png")));
+            pokemon4 = new Pokemon ("Cyndaquil",5,30,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.png")));
+            pokemon5 = new Pokemon ("Totodile",5,20,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\totodile.png")));
+            pokemon6 = new Pokemon ("Chikorita",5,35,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.png")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -102,7 +103,7 @@ public class Ventana1Controller {
     @FXML
     ProgressBar pokemon_21health;
 
-    //Pokemon´s image
+    //Pokemon´s selection
     @FXML
     Pane pokemon_00;
     @FXML
@@ -116,9 +117,24 @@ public class Ventana1Controller {
     @FXML
     Pane pokemon_21;
 
+    //Pokemon´s gender
+    @FXML
+    ImageView pokemon_00gender;
+    @FXML
+    ImageView pokemon_10gender;
+    @FXML
+    ImageView pokemon_20gender;
+    @FXML
+    ImageView pokemon_01gender;
+    @FXML
+    ImageView pokemon_11gender;
+    @FXML
+    ImageView pokemon_21gender;
+
 
     @FXML
     public void initialize(){
+
         pokemonArrayList.add(pokemon1);
         pokemonArrayList.add(pokemon2);
         pokemonArrayList.add(pokemon3);
@@ -157,6 +173,14 @@ public class Ventana1Controller {
         pokemon_01health.setProgress(calculate_health(pokemonArrayList.get(3)));
         pokemon_11health.setProgress(calculate_health(pokemonArrayList.get(4)));
         pokemon_21health.setProgress(calculate_health(pokemonArrayList.get(5)));
+
+        //Pokemon´s gender
+        pokemon_00gender.setImage(pokemon1.getGender());
+        pokemon_10gender.setImage(pokemon2.getGender());
+        pokemon_20gender.setImage(pokemon3.getGender());
+        pokemon_01gender.setImage(pokemon4.getGender());
+        pokemon_11gender.setImage(pokemon5.getGender());
+        pokemon_21gender.setImage(pokemon6.getGender());
 
     }
 
@@ -267,14 +291,16 @@ public class Ventana1Controller {
     @FXML
     protected void openBattlefield(){
         try{
-            stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ventana2.fxml"));
-            BorderPane root = loader.load();
-            Scene scene = new Scene(root,500,500);
-            stage.setScene(scene);
-            stage.show();
-            System.out.println(v2c.getClass());
-            v2c = loader.getController();
+            if (stage == null || !stage.isShowing()) {
+                stage = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ventana2.fxml"));
+                BorderPane root = loader.load();
+                Scene scene = new Scene(root, 729, 400);
+                stage.setScene(scene);
+                stage.show();
+                stage.setResizable(false);
+                v2c = loader.getController();
+            }
 
         }catch (Exception e){
             e.printStackTrace();
