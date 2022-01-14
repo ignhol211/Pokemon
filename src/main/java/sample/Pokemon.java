@@ -13,8 +13,9 @@ public class Pokemon {
     private int health_points;
     private Image gender;
     private final Image image;
+    private final Image fighting_image;
 
-    public Pokemon(String name, int level, int max_health_points, Image gender, Image image) {
+    public Pokemon(String name, int level, int max_health_points, Image gender, Image image, Image fighting_image) {
 
         MAX_HEALTH_POINTS = max_health_points;
 
@@ -23,6 +24,7 @@ public class Pokemon {
         this.health_points = MAX_HEALTH_POINTS;
         this.gender = gender;
         this.image = image;
+        this.fighting_image = fighting_image;
 
     }
 
@@ -64,6 +66,6 @@ public class Pokemon {
 
     public Image getImage() { return image; }
 
-
+    public Image getFightingImage() { return fighting_image; }
 
 }

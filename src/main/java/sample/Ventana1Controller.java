@@ -33,12 +33,12 @@ public class Ventana1Controller {
 
     {
         try {
-            pokemon1 = new Pokemon ("Charmander",5,35,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\charmander.png")));
-            pokemon2 = new Pokemon ("Squirtle",5,30,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.png")));
-            pokemon3 = new Pokemon ("Bulbasaur",5,25,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.png")));
-            pokemon4 = new Pokemon ("Cyndaquil",5,30,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.png")));
-            pokemon5 = new Pokemon ("Totodile",5,20,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\totodile.png")));
-            pokemon6 = new Pokemon ("Chikorita",5,35,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.png")));
+            pokemon1 = new Pokemon ("Charmander",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\charmander.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_charmander.png")));
+            pokemon2 = new Pokemon ("Squirtle",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_squirtle.png")));
+            pokemon3 = new Pokemon ("Bulbasaur",5,125,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_bulbasaur.png")));
+            pokemon4 = new Pokemon ("Cyndaquil",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_cyndaquil.png")));
+            pokemon5 = new Pokemon ("Totodile",5,120,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\totodile.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_totodile.png")));
+            pokemon6 = new Pokemon ("Chikorita",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_chikorita.png")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -295,7 +295,7 @@ public class Ventana1Controller {
                 stage = new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/ventana2.fxml"));
                 BorderPane root = loader.load();
-                Scene scene = new Scene(root, 729, 400);
+                Scene scene = new Scene(root, 730, 426);
                 stage.setScene(scene);
                 stage.show();
                 stage.setResizable(false);

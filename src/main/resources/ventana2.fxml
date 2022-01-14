@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana2Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana2Controller">
    <center>
-      <Pane prefHeight="312.0" prefWidth="715.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="426.0" prefWidth="740.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="340.0" fitWidth="740.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@battlefield.jpeg" />
                </image>
             </ImageView>
-            <ImageView fx:id="oponent_image" fitHeight="138.0" fitWidth="162.0" layoutX="465.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
-            </ImageView>
-            <Pane layoutX="14.0" layoutY="84.0" opacity="0.5" prefHeight="55.0" prefWidth="305.0" style="-fx-background-color: white;">
+            <ImageView fx:id="opponent_image" fitHeight="171.0" fitWidth="222.0" layoutX="465.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="pokemonToFigth_image" fitHeight="138.0" fitWidth="162.0" layoutX="115.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane fx:id="opponent_pane" onMouseEntered="#opponentChangeOpacity" layoutX="14.0" layoutY="84.0" opacity="0.5" prefHeight="55.0" prefWidth="305.0" style="-fx-background-color: white;">
                <children>
-                  <Text fx:id="oponent_name" boundsType="VISUAL" layoutX="11.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                  <Text fx:id="opponent_name" boundsType="VISUAL" layoutX="11.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -33,18 +33,51 @@
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <ProgressBar fx:id="oponent_health" layoutX="100.0" layoutY="28.0" prefHeight="20.0" prefWidth="200.0" progress="0.0" style="-fx-accent: #2cd50e;" />
-                  <ImageView fx:id="oponent_gender" fitHeight="17.0" fitWidth="17.0" layoutX="239.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                  <ProgressBar fx:id="opponent_health" layoutX="100.0" layoutY="28.0" prefHeight="20.0" prefWidth="200.0" progress="0.0" style="-fx-accent: #2cd50e;" />
+                  <ImageView fx:id="opponent_gender" fitHeight="17.0" fitWidth="17.0" layoutX="239.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
                </children></Pane>
-            <Pane layoutY="340.0" prefHeight="62.0" prefWidth="729.0" style="-fx-background-color: purple;" />
-            <Pane layoutX="410.0" layoutY="275.0" opacity="0.5" prefHeight="55.0" prefWidth="305.0" style="-fx-background-color: white;">
+            <Pane layoutY="340.0" prefHeight="86.0" prefWidth="729.0" style="-fx-background-color: grey;">
                <children>
-                  <Text fx:id="fightingPokemon_name" boundsType="VISUAL" layoutX="11.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
+                  <Button contentDisplay="CENTER" layoutX="100.0" layoutY="21.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" style="-fx-background-radius: 15;" text="Attack" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="500.0" layoutY="21.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" style="-fx-background-radius: 15;" text="Cure" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="100.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: yellow;" text="Placaje" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="500.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: red;" text="Golpe cuerpo" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="300.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Arañazo" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="667.0" layoutY="53.0" mnemonicParsing="false" text="Cancel" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="pokemon_pane" layoutX="410.0" layoutY="275.0" onMouseEntered="#pokemonChangeOpacity" opacity="0.5" prefHeight="55.0" prefWidth="305.0" style="-fx-background-color: white;">
+               <children>
+                  <Text fx:id="pokemonToFigth_name" boundsType="VISUAL" layoutX="11.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Undefined" textAlignment="CENTER" wrappingWidth="95.13671875">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text fx:id="fightingPokemon_level" boundsType="VISUAL" layoutX="233.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
+                  <Text fx:id="pokemonToFigth_level" boundsType="VISUAL" layoutX="233.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lv  0" textAlignment="CENTER" wrappingWidth="95.13671875">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -54,8 +87,8 @@
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <ProgressBar layoutX="100.0" layoutY="28.0" prefHeight="20.0" prefWidth="200.0" progress="0.0" style="-fx-accent: #2cd50e;" />
-                  <ImageView fx:id="oponent_gender1" fitHeight="16.0" fitWidth="16.0" layoutX="239.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                  <ProgressBar fx:id="pokemonToFigth_health" layoutX="100.0" layoutY="28.0" prefHeight="20.0" prefWidth="200.0" progress="0.0" style="-fx-accent: #2cd50e;" />
+                  <ImageView fx:id="pokemonToFigth_gender" fitHeight="16.0" fitWidth="16.0" layoutX="239.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
          </children>
