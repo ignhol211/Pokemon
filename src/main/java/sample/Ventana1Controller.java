@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -33,12 +32,12 @@ public class Ventana1Controller {
 
     {
         try {
-            pokemon1 = new Pokemon ("Charmander",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\charmander.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_charmander.png")));
-            pokemon2 = new Pokemon ("Squirtle",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_squirtle.png")));
-            pokemon3 = new Pokemon ("Bulbasaur",5,125,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_bulbasaur.png")));
-            pokemon4 = new Pokemon ("Cyndaquil",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_cyndaquil.png")));
-            pokemon5 = new Pokemon ("Totodile",5,120,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\totodile.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_totodile.png")));
-            pokemon6 = new Pokemon ("Chikorita",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.png")),new Image(new FileInputStream(".\\src\\main\\resources\\fighting_chikorita.png")));
+            pokemon1 = new Pokemon ("Charmander",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\charmander.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\charmanderFighting.gif")));
+            pokemon2 = new Pokemon ("Squirtle",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\squirtleFighting.gif")));
+            pokemon3 = new Pokemon ("Bulbasaur",5,125,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaurFighting.gif")));
+            pokemon4 = new Pokemon ("Cyndaquil",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquilFighting.gif")));
+            pokemon5 = new Pokemon ("Totodile",5,120,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\totodile.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\totodileFighting.gif")));
+            pokemon6 = new Pokemon ("Chikorita",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\chikoritaFighting.gif")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -48,6 +47,7 @@ public class Ventana1Controller {
     Button button_continue;
 
     //Pokemon´s names
+    ArrayList <Text> pokemon_names = new ArrayList<>();
     @FXML
     Text pokemon_00name;
     @FXML
@@ -62,6 +62,7 @@ public class Ventana1Controller {
     Text pokemon_21name;
 
     //Pokemon´s levels
+    ArrayList <Text> pokemon_levels = new ArrayList<>();
     @FXML
     Text pokemon_00level;
     @FXML
@@ -76,6 +77,7 @@ public class Ventana1Controller {
     Text pokemon_21level;
 
     //Pokemon´s image
+    ArrayList <ImageView> pokemon_images = new ArrayList<>();
     @FXML
     ImageView pokemon_00image;
     @FXML
@@ -90,6 +92,7 @@ public class Ventana1Controller {
     ImageView pokemon_21image;
 
     //Pokemon´s health
+    ArrayList <ProgressBar> pokemon_health = new ArrayList<>();
     @FXML
     ProgressBar pokemon_00health;
     @FXML
@@ -103,21 +106,8 @@ public class Ventana1Controller {
     @FXML
     ProgressBar pokemon_21health;
 
-    //Pokemon´s selection
-    @FXML
-    Pane pokemon_00;
-    @FXML
-    Pane pokemon_10;
-    @FXML
-    Pane pokemon_20;
-    @FXML
-    Pane pokemon_01;
-    @FXML
-    Pane pokemon_11;
-    @FXML
-    Pane pokemon_21;
-
     //Pokemon´s gender
+    ArrayList <ImageView> pokemon_gender = new ArrayList<>();
     @FXML
     ImageView pokemon_00gender;
     @FXML
@@ -131,6 +121,21 @@ public class Ventana1Controller {
     @FXML
     ImageView pokemon_21gender;
 
+    //Pokemon´s selection
+     ArrayList <Pane> pokemon_panes = new ArrayList();
+    @FXML
+    Pane pokemon_00;
+    @FXML
+    Pane pokemon_10;
+    @FXML
+    Pane pokemon_20;
+    @FXML
+    Pane pokemon_01;
+    @FXML
+    Pane pokemon_11;
+    @FXML
+    Pane pokemon_21;
+
 
     @FXML
     public void initialize(){
@@ -142,61 +147,101 @@ public class Ventana1Controller {
         pokemonArrayList.add(pokemon5);
         pokemonArrayList.add(pokemon6);
 
-        //Pokemon´s name
-        pokemon_00name.setText(pokemonArrayList.get(0).getName());
-        pokemon_10name.setText(pokemonArrayList.get(1).getName());
-        pokemon_20name.setText(pokemonArrayList.get(2).getName());
-        pokemon_01name.setText(pokemonArrayList.get(3).getName());
-        pokemon_11name.setText(pokemonArrayList.get(4).getName());
-        pokemon_21name.setText(pokemonArrayList.get(5).getName());
+        pokemon_names.add(pokemon_00name);
+        pokemon_names.add(pokemon_10name);
+        pokemon_names.add(pokemon_20name);
+        pokemon_names.add(pokemon_01name);
+        pokemon_names.add(pokemon_11name);
+        pokemon_names.add(pokemon_21name);
 
-        //Pokemon´s image
-        pokemon_00image.setImage(pokemon1.getImage());
-        pokemon_10image.setImage(pokemon2.getImage());
-        pokemon_20image.setImage(pokemon3.getImage());
-        pokemon_01image.setImage(pokemon4.getImage());
-        pokemon_11image.setImage(pokemon5.getImage());
-        pokemon_21image.setImage(pokemon6.getImage());
+        pokemon_levels.add(pokemon_00level);
+        pokemon_levels.add(pokemon_10level);
+        pokemon_levels.add(pokemon_20level);
+        pokemon_levels.add(pokemon_01level);
+        pokemon_levels.add(pokemon_11level);
+        pokemon_levels.add(pokemon_21level);
+
+        pokemon_health.add(pokemon_00health);
+        pokemon_health.add(pokemon_10health);
+        pokemon_health.add(pokemon_20health);
+        pokemon_health.add(pokemon_01health);
+        pokemon_health.add(pokemon_11health);
+        pokemon_health.add(pokemon_21health);
+
+        pokemon_images.add(pokemon_00image);
+        pokemon_images.add(pokemon_10image);
+        pokemon_images.add(pokemon_20image);
+        pokemon_images.add(pokemon_01image);
+        pokemon_images.add(pokemon_11image);
+        pokemon_images.add(pokemon_21image);
+
+        pokemon_gender.add(pokemon_00gender);
+        pokemon_gender.add(pokemon_10gender);
+        pokemon_gender.add(pokemon_20gender);
+        pokemon_gender.add(pokemon_01gender);
+        pokemon_gender.add(pokemon_11gender);
+        pokemon_gender.add(pokemon_21gender);
+
+        pokemon_panes.add(pokemon_00);
+        pokemon_panes.add(pokemon_10);
+        pokemon_panes.add(pokemon_20);
+        pokemon_panes.add(pokemon_01);
+        pokemon_panes.add(pokemon_11);
+        pokemon_panes.add(pokemon_21);
+
+        //Pokemon´s name
+
+        int i = 0;
+        for (Text name : pokemon_names
+        ){
+            name.setText(pokemonArrayList.get(i).getName());
+            i++;
+        }
+
 
         //Pokemon´s level
-        pokemon_00level.setText(LEVEL + pokemonArrayList.get(0).getLevel());
-        pokemon_10level.setText(LEVEL + pokemonArrayList.get(1).getLevel());
-        pokemon_20level.setText(LEVEL + pokemonArrayList.get(2).getLevel());
-        pokemon_01level.setText(LEVEL + pokemonArrayList.get(3).getLevel());
-        pokemon_11level.setText(LEVEL + pokemonArrayList.get(4).getLevel());
-        pokemon_21level.setText(LEVEL + pokemonArrayList.get(5).getLevel());
+        i = 0;
+        for (Text level : pokemon_levels
+        ){
+            level.setText(LEVEL + pokemonArrayList.get(i).getLevel());
+            i++;
+        }
+
+        //Pokemon´s image
+        i = 0;
+        for (ImageView image : pokemon_images
+        ){
+            image.setImage(pokemonArrayList.get(i).getImage());
+            i++;
+        }
 
         //Pokemon´s health
-        pokemon_00health.setProgress(calculate_health(pokemonArrayList.get(0)));
-        pokemon_10health.setProgress(calculate_health(pokemonArrayList.get(1)));
-        pokemon_20health.setProgress(calculate_health(pokemonArrayList.get(2)));
-        pokemon_01health.setProgress(calculate_health(pokemonArrayList.get(3)));
-        pokemon_11health.setProgress(calculate_health(pokemonArrayList.get(4)));
-        pokemon_21health.setProgress(calculate_health(pokemonArrayList.get(5)));
+        i = 0;
+        for (ProgressBar health : pokemon_health){
+            health.setProgress(calculate_health(pokemonArrayList.get(i)));
+            i++;
+        }
 
         //Pokemon´s gender
-        pokemon_00gender.setImage(pokemon1.getGender());
-        pokemon_10gender.setImage(pokemon2.getGender());
-        pokemon_20gender.setImage(pokemon3.getGender());
-        pokemon_01gender.setImage(pokemon4.getGender());
-        pokemon_11gender.setImage(pokemon5.getGender());
-        pokemon_21gender.setImage(pokemon6.getGender());
+        i = 0;
+        for (ImageView gender : pokemon_gender){
+            gender.setImage(pokemonArrayList.get(i).getGender());
+            i++;
+        }
 
     }
 
     private double calculate_health(Pokemon pokemon){
-        return pokemon.getHealth_points()/ pokemon.getMAX_HEALTH_POINTS();
+        return (double) pokemon.getHealth_points()/ pokemon.getMAX_HEALTH_POINTS();
     }
 
     @FXML
     public void pokemon00Selected() {
         showButtonContinue();
-        pokemon_00.setStyle("-fx-background-color:  #13abf4;");
-        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        for(Pane pane: pokemon_panes){
+            noSelectedPokemon(pane);
+        }
+        selectedPokemon(pokemon_00);
         pokemonToFigth = pokemonArrayList.get(0);
 
     }
@@ -204,12 +249,10 @@ public class Ventana1Controller {
     @FXML
     public void pokemon10Selected() {
         showButtonContinue();
-        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_10.setStyle("-fx-background-color:  #13abf4;");
-        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        for(Pane pane: pokemon_panes){
+            noSelectedPokemon(pane);
+        }
+        selectedPokemon(pokemon_10);
         pokemonToFigth = pokemonArrayList.get(1);
 
     }
@@ -217,12 +260,10 @@ public class Ventana1Controller {
     @FXML
     public void pokemon20Selected() {
         showButtonContinue();
-        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_20.setStyle("-fx-background-color:  #13abf4;");
-        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        for(Pane pane: pokemon_panes){
+            noSelectedPokemon(pane);
+        }
+        selectedPokemon(pokemon_20);
         pokemonToFigth = pokemonArrayList.get(2);
 
     }
@@ -230,12 +271,10 @@ public class Ventana1Controller {
     @FXML
     public void pokemon01Selected() {
         showButtonContinue();
-        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_01.setStyle("-fx-background-color:  #13abf4;");
-        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        for(Pane pane: pokemon_panes){
+            noSelectedPokemon(pane);
+        }
+        selectedPokemon(pokemon_01);
         pokemonToFigth = pokemonArrayList.get(3);
 
     }
@@ -243,12 +282,10 @@ public class Ventana1Controller {
     @FXML
     public void pokemon11Selected() {
         showButtonContinue();
-        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_11.setStyle("-fx-background-color:  #13abf4;");
-        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        for(Pane pane: pokemon_panes){
+            noSelectedPokemon(pane);
+        }
+        selectedPokemon(pokemon_11);
         pokemonToFigth = pokemonArrayList.get(4);
 
     }
@@ -256,12 +293,10 @@ public class Ventana1Controller {
     @FXML
     public void pokemon21Selected() {
         showButtonContinue();
-        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_21.setStyle("-fx-background-color:  #13abf4;");
+        for(Pane pane: pokemon_panes){
+            noSelectedPokemon(pane);
+        }
+        selectedPokemon(pokemon_21);
         pokemonToFigth = pokemonArrayList.get(5);
 
     }
@@ -269,12 +304,9 @@ public class Ventana1Controller {
     @FXML
     private void reset(){
         hideButtonContinue();
-        pokemon_00.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_10.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_20.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_01.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_11.setStyle("-fx-background-color:  #bbf7f3;");
-        pokemon_21.setStyle("-fx-background-color:  #bbf7f3;");
+        for (Pane pane: pokemon_panes){
+            noSelectedPokemon(pane);
+        }
     }
 
     public void showButtonContinue(){
@@ -283,6 +315,9 @@ public class Ventana1Controller {
     public void hideButtonContinue(){
         button_continue.setVisible(false);
     }
+
+    private void noSelectedPokemon(Pane background){background.setStyle("-fx-background-color:  #bbf7f3;");}
+    private void selectedPokemon(Pane background){background.setStyle("-fx-background-color:   #13abf4");}
 
     //Battlefield elements
     private Ventana2Controller v2c = null;
