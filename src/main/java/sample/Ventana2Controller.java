@@ -3,8 +3,10 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
@@ -64,6 +66,12 @@ public class Ventana2Controller {
     @FXML
     Button scratchButton;
 
+    //PS text
+    @FXML
+    TextField pokemonFighting_ps;
+    @FXML
+    TextField opponent_ps;
+
     public void loadBattlefield (Pokemon pokemonToFight){
 
         this.pokemonFighting = pokemonToFight;
@@ -79,17 +87,17 @@ public class Ventana2Controller {
             try {
                 //Opponents
                 final int OPPONENT_MAX_HEATLH = 100;
-                possible_opponent1 = new Pokemon ("Pidgeotto", (int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\pidgeotto.png")),null);
+                possible_opponent1 = new Pokemon ("Pidgey", (int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\pidgey.gif")),null);
                 opponentsArrayList.add(possible_opponent1);
-                possible_opponent2 = new Pokemon ("Rattata",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\rattata.png")),null);
+                possible_opponent2 = new Pokemon ("Rattata",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\rattata.gif")),null);
                 opponentsArrayList.add(possible_opponent2);
-                possible_opponent3 = new Pokemon ("Butterfree",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\butterfree.png")),null);
+                possible_opponent3 = new Pokemon ("Caterpie",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\caterpie.gif")),null);
                 opponentsArrayList.add(possible_opponent3);
-                possible_opponent4 = new Pokemon ("Sentret",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\sentret.png")),null);
+                possible_opponent4 = new Pokemon ("Sentret",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\sentret.gif")),null);
                 opponentsArrayList.add(possible_opponent4);
-                possible_opponent5 = new Pokemon ("Chinchou",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chinchou.png")),null);
+                possible_opponent5 = new Pokemon ("Chinchou",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chinchou.gif")),null);
                 opponentsArrayList.add(possible_opponent5);
-                possible_opponent6 = new Pokemon ("Abra",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\abra.png")),null);
+                possible_opponent6 = new Pokemon ("Abra",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\abra.gif")),null);
                 opponentsArrayList.add(possible_opponent6);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -257,5 +265,20 @@ public class Ventana2Controller {
         bodySlamButton.setVisible(false);
         scratchButton.setVisible(false);
         cancelButton.setVisible(false);
+    }
+
+    public void pokemonFighting_ps_entered() {
+        pokemonFighting_ps.setText(""+pokemonFighting.getHealth_points());
+    }
+    public void pokemonFighting_ps_exited() {
+        pokemonFighting_ps.setText("PS");
+    }
+
+    public void opponent_ps_entered() {
+        opponent_ps.setText(""+opponent.getHealth_points());
+    }
+
+    public void opponent_ps_exited() {
+        opponent_ps.setText("PS");
     }
 }

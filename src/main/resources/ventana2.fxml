@@ -25,7 +25,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER" centerShape="false" editable="false" layoutX="77.0" layoutY="28.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
+            <TextField fx:id="opponent_ps" onMouseEntered="#opponent_ps_entered" onMouseExited="#opponent_ps_exited" alignment="CENTER" centerShape="false" editable="false" layoutX="77.0" layoutY="28.0" prefHeight="9.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                <font>
                   <Font size="13.0" />
                </font>
@@ -50,17 +50,17 @@
                   <InnerShadow />
                </effect>
             </Button>
-            <Button fx:id="tackleButton" onMouseClicked="#tackleClicked" layoutX="100.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: yellow;" text="Tackle" textAlignment="CENTER" visible="false">
+            <Button fx:id="tackleButton" layoutX="100.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#tackleClicked" style="-fx-background-radius: 20; -fx-background-color: yellow;" text="Tackle" textAlignment="CENTER" visible="false">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="bodySlamButton" onMouseClicked="#bodySlamClicked" layoutX="500.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: red;" text="Body Slam" textAlignment="CENTER" visible="false">
+            <Button fx:id="bodySlamButton" layoutX="500.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#bodySlamClicked" style="-fx-background-radius: 20; -fx-background-color: red;" text="Body Slam" textAlignment="CENTER" visible="false">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="scratchButton" onMouseClicked="#scratchClicked" layoutX="300.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Scratch" textAlignment="CENTER" visible="false">
+            <Button fx:id="scratchButton" layoutX="300.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#scratchClicked" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Scratch" textAlignment="CENTER" visible="false">
                <font>
                   <Font size="20.0" />
                </font>
@@ -82,7 +82,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER" centerShape="false" editable="false" layoutX="77.0" layoutY="28.0" prefHeight="10.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
+            <TextField fx:id="pokemonFighting_ps" onMouseEntered="#pokemonFighting_ps_entered" onMouseExited="#pokemonFighting_ps_exited" alignment="CENTER" centerShape="false" editable="false" layoutX="77.0" layoutY="28.0" prefHeight="10.0" prefWidth="23.0" style="-fx-background-color: #424445; -fx-padding: 0; -fx-text-fill: #faea00;" text="PS">
                <font>
                   <Font size="13.0" />
                </font>
