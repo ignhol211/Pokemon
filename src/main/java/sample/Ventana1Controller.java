@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
@@ -32,12 +33,12 @@ public class Ventana1Controller {
 
     {
         try {
-            pokemon1 = new Pokemon ("Charmander",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\charmander.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\charmanderFighting.gif")));
-            pokemon2 = new Pokemon ("Squirtle",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\squirtleFighting.gif")));
-            pokemon3 = new Pokemon ("Bulbasaur",5,125,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaurFighting.gif")));
-            pokemon4 = new Pokemon ("Cyndaquil",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquilFighting.gif")));
-            pokemon5 = new Pokemon ("Totodile",5,120,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\totodile.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\totodileFighting.gif")));
-            pokemon6 = new Pokemon ("Chikorita",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\chikoritaFighting.gif")));
+            pokemon1 = new Pokemon (1,"Charmander",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\charmander.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\charmanderFighting.gif")));
+            pokemon2 = new Pokemon (2,"Squirtle",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\squirtleFighting.gif")));
+            pokemon3 = new Pokemon (3,"Bulbasaur",5,125,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaurFighting.gif")));
+            pokemon4 = new Pokemon (4,"Cyndaquil",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquilFighting.gif")));
+            pokemon5 = new Pokemon (5,"Totodile",5,120,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\totodile.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\totodileFighting.gif")));
+            pokemon6 = new Pokemon (6,"Chikorita",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\chikoritaFighting.gif")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -122,7 +123,7 @@ public class Ventana1Controller {
     ImageView pokemon_21gender;
 
     //Pokemon´s selection
-     ArrayList <Pane> pokemon_panes = new ArrayList();
+     ArrayList <Pane> pokemon_panes = new ArrayList<>();
     @FXML
     Pane pokemon_00;
     @FXML
@@ -303,6 +304,7 @@ public class Ventana1Controller {
 
     @FXML
     private void reset(){
+        pokemonToFigth = null;
         hideButtonContinue();
         for (Pane pane: pokemon_panes){
             noSelectedPokemon(pane);
@@ -320,29 +322,45 @@ public class Ventana1Controller {
     private void selectedPokemon(Pane background){background.setStyle("-fx-background-color:   #13abf4");}
 
     //Battlefield elements
-    private Ventana2Controller v2c = null;
-    private Stage stage = null;
+    private Ventana2Controller v2c;
+    protected Stage stage;
 
     @FXML
     protected void openBattlefield(){
-        try{
-            if (stage == null || !stage.isShowing()) {
-                stage = new Stage();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ventana2.fxml"));
-                BorderPane root = loader.load();
-                Scene scene = new Scene(root, 730, 426);
-                stage.setScene(scene);
-                stage.show();
-                stage.setResizable(false);
-                v2c = loader.getController();
+        if(pokemonToFigth.getHealth_points() > 0) {
+            try {
+                if (stage == null || !stage.isShowing()) {
+                    stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/ventana2.fxml"));
+                    BorderPane root = loader.load();
+                    Scene scene = new Scene(root, 730, 426);
+                    stage.setScene(scene);
+                    stage.show();
+                    stage.setResizable(false);
+                    v2c = loader.getController();
+                }
+                v2c.loadBattlefield(pokemonToFigth);
+                v2c.sendController(this);
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-        }catch (Exception e){
-            e.printStackTrace();
+        }else{
+            reset();
+            alert();
         }
+    }
 
-        v2c.loadBattlefield(pokemonToFigth);
+    public void uploadPokemon(Pokemon pokemon){
+        pokemonArrayList.set(pokemon.getIndex(),pokemon);
+        initialize();
+    }
 
+    private void alert(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Warning");
+        alert.setContentText("It is not allowed to choose a fainted Pokemon");
+        alert.showAndWait();
     }
 
 }

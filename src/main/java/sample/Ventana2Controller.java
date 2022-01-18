@@ -1,12 +1,12 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
@@ -18,6 +18,8 @@ public class Ventana2Controller {
 
     private Pokemon pokemonFighting = null;
     private Pokemon opponent = null;
+
+    private Ventana1Controller controller1;
 
     @FXML
     private ImageView opponent_image;
@@ -72,6 +74,8 @@ public class Ventana2Controller {
     @FXML
     TextField opponent_ps;
 
+
+
     public void loadBattlefield (Pokemon pokemonToFight){
 
         this.pokemonFighting = pokemonToFight;
@@ -87,24 +91,24 @@ public class Ventana2Controller {
             try {
                 //Opponents
                 final int OPPONENT_MAX_HEATLH = 100;
-                possible_opponent1 = new Pokemon ("Pidgey", (int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\pidgey.gif")),null);
+                possible_opponent1 = new Pokemon (7,"Pidgey", (int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\pidgey.gif")),null);
                 opponentsArrayList.add(possible_opponent1);
-                possible_opponent2 = new Pokemon ("Rattata",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\rattata.gif")),null);
+                possible_opponent2 = new Pokemon (8,"Rattata",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\rattata.gif")),null);
                 opponentsArrayList.add(possible_opponent2);
-                possible_opponent3 = new Pokemon ("Caterpie",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\caterpie.gif")),null);
+                possible_opponent3 = new Pokemon (9,"Caterpie",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\caterpie.gif")),null);
                 opponentsArrayList.add(possible_opponent3);
-                possible_opponent4 = new Pokemon ("Sentret",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\sentret.gif")),null);
+                possible_opponent4 = new Pokemon (10,"Sentret",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\sentret.gif")),null);
                 opponentsArrayList.add(possible_opponent4);
-                possible_opponent5 = new Pokemon ("Chinchou",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chinchou.gif")),null);
+                possible_opponent5 = new Pokemon (11,"Chinchou",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chinchou.gif")),null);
                 opponentsArrayList.add(possible_opponent5);
-                possible_opponent6 = new Pokemon ("Abra",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\abra.gif")),null);
+                possible_opponent6 = new Pokemon (12,"Abra",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\abra.gif")),null);
                 opponentsArrayList.add(possible_opponent6);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         }
 
-        opponent = opponentsArrayList.get((int) (Math.random()*(6-1)));
+        opponent = opponentsArrayList.get((int) (Math.random()*(opponentsArrayList.size()-1)));
 
         loadOpponent(opponent);
         loadFightingPokemon(pokemonToFight);
@@ -115,7 +119,7 @@ public class Ventana2Controller {
         pokemonFighting_image.setImage(pokemonToFigth.getFightingImage());
         pokemonFighting_name.setText(pokemonToFigth.getName());
         pokemonFighting_level.setText(Ventana1Controller.LEVEL+pokemonToFigth.getLevel());
-        pokemonFighting_health.setProgress(pokemonToFigth.getHealth_points());
+        pokemonFighting_health.setProgress((double)pokemonToFigth.getHealth_points()/pokemonToFigth.getMAX_HEALTH_POINTS());
         pokemonFighting_gender.setImage(pokemonToFigth.getGender());
     }
 
@@ -196,8 +200,19 @@ public class Ventana2Controller {
 
             System.out.println(opponent.getName() + " attacks and " +pokemonFighting.getName() + " loose " + attack + " health points");
 
+            if(pokemonFighting.getHealth_points() < 0){
+                System.out.println(pokemonFighting.getName() + " is fainted can not fight back");
+                alert(pokemonFighting);
+                controller1.uploadPokemon(pokemonFighting);
+                controller1.stage.close();
+            }
+
         }else{
-            System.out.println(opponent.getName() + " is weakened and can not fight back");
+            System.out.println(opponent.getName() + " is fainted and can not fight back");
+            alert(opponent);
+            opponentsArrayList.remove(opponent);
+            controller1.uploadPokemon(pokemonFighting);
+            controller1.stage.close();
         }
         cancelClicked();
 
@@ -223,8 +238,19 @@ public class Ventana2Controller {
 
             System.out.println(opponent.getName() + " attacks and " +pokemonFighting.getName() + " loose " + attack + " health points");
 
+            if(pokemonFighting.getHealth_points() < 0){
+                System.out.println(pokemonFighting.getName() + " is fainted can not fight back");
+                alert(pokemonFighting);
+                controller1.uploadPokemon(pokemonFighting);
+                controller1.stage.close();
+            }
+
         }else{
-            System.out.println(opponent.getName() + " is weakened and can not fight back");
+            System.out.println(opponent.getName() + " is fainted and can not fight back");
+            alert(opponent);
+            opponentsArrayList.remove(opponent);
+            controller1.uploadPokemon(pokemonFighting);
+            controller1.stage.close();
         }
         cancelClicked();
 
@@ -250,8 +276,19 @@ public class Ventana2Controller {
 
             System.out.println(opponent.getName() + " attacks and " +pokemonFighting.getName() + " loose " + attack + " health points");
 
+            if(pokemonFighting.getHealth_points() < 0){
+                System.out.println(pokemonFighting.getName() + " is fainted can not fight back");
+                alert(pokemonFighting);
+                controller1.uploadPokemon(pokemonFighting);
+                controller1.stage.close();
+            }
+
         }else{
-            System.out.println(opponent.getName() + " is weakened and can not fight back");
+            System.out.println(opponent.getName() + " is fainted and can not fight back");
+            alert(opponent);
+            opponentsArrayList.remove(opponent);
+            controller1.uploadPokemon(pokemonFighting);
+            controller1.stage.close();
         }
 
         cancelClicked();
@@ -270,6 +307,7 @@ public class Ventana2Controller {
     public void pokemonFighting_ps_entered() {
         pokemonFighting_ps.setText(""+pokemonFighting.getHealth_points());
     }
+
     public void pokemonFighting_ps_exited() {
         pokemonFighting_ps.setText("PS");
     }
@@ -281,4 +319,18 @@ public class Ventana2Controller {
     public void opponent_ps_exited() {
         opponent_ps.setText("PS");
     }
+
+    private void alert(Pokemon pokemon){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setContentText(pokemon.getName() + " is fainted. Do you want to fight again or close application");
+        alert.setTitle("Choose an option");
+        alert.setGraphic(new ImageView(pokemon.getImage()));
+        alert.showAndWait();
+    }
+
+    public void sendController(Ventana1Controller controller){
+        this.controller1 = controller;
+    }
+
 }
