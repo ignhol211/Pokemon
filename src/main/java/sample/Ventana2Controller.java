@@ -1,10 +1,7 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -13,6 +10,7 @@ import javafx.scene.text.Text;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Ventana2Controller {
 
@@ -202,17 +200,12 @@ public class Ventana2Controller {
 
             if(pokemonFighting.getHealth_points() < 0){
                 System.out.println(pokemonFighting.getName() + " is fainted can not fight back");
-                alert(pokemonFighting);
-                controller1.uploadPokemon(pokemonFighting);
-                controller1.stage.close();
+                showAlert(alert(pokemonFighting));
             }
 
         }else{
             System.out.println(opponent.getName() + " is fainted and can not fight back");
-            alert(opponent);
-            opponentsArrayList.remove(opponent);
-            controller1.uploadPokemon(pokemonFighting);
-            controller1.stage.close();
+            showAlert(alert(opponent));
         }
         cancelClicked();
 
@@ -240,17 +233,12 @@ public class Ventana2Controller {
 
             if(pokemonFighting.getHealth_points() < 0){
                 System.out.println(pokemonFighting.getName() + " is fainted can not fight back");
-                alert(pokemonFighting);
-                controller1.uploadPokemon(pokemonFighting);
-                controller1.stage.close();
+                showAlert(alert(pokemonFighting));
             }
 
         }else{
             System.out.println(opponent.getName() + " is fainted and can not fight back");
-            alert(opponent);
-            opponentsArrayList.remove(opponent);
-            controller1.uploadPokemon(pokemonFighting);
-            controller1.stage.close();
+            showAlert(alert(opponent));
         }
         cancelClicked();
 
@@ -278,17 +266,12 @@ public class Ventana2Controller {
 
             if(pokemonFighting.getHealth_points() < 0){
                 System.out.println(pokemonFighting.getName() + " is fainted can not fight back");
-                alert(pokemonFighting);
-                controller1.uploadPokemon(pokemonFighting);
-                controller1.stage.close();
+                showAlert(alert(pokemonFighting));
             }
 
         }else{
             System.out.println(opponent.getName() + " is fainted and can not fight back");
-            alert(opponent);
-            opponentsArrayList.remove(opponent);
-            controller1.uploadPokemon(pokemonFighting);
-            controller1.stage.close();
+            showAlert(alert(opponent));
         }
 
         cancelClicked();
@@ -320,13 +303,25 @@ public class Ventana2Controller {
         opponent_ps.setText("PS");
     }
 
-    private void alert(Pokemon pokemon){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    private void showAlert(Alert alert){
+        Optional<ButtonType> decission = alert.showAndWait();
+        if(decission.get() == ButtonType.NO){
+            System.exit(0);
+        }else{
+            controller1.stage.close();
+            opponentsArrayList.remove(opponent);
+            controller1.uploadPokemon(pokemonFighting);
+        }
+    }
+
+    public Alert alert(Pokemon pokemon){
+        Alert alert = new Alert(Alert.AlertType.NONE);
         alert.setHeaderText(null);
         alert.setContentText(pokemon.getName() + " is fainted. Do you want to fight again or close application");
         alert.setTitle("Choose an option");
         alert.setGraphic(new ImageView(pokemon.getImage()));
-        alert.showAndWait();
+        alert.getDialogPane().getButtonTypes().addAll(ButtonType.YES,ButtonType.NO);
+        return alert;
     }
 
     public void sendController(Ventana1Controller controller){

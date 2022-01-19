@@ -193,8 +193,7 @@ public class Ventana1Controller {
         //Pokemon´s name
 
         int i = 0;
-        for (Text name : pokemon_names
-        ){
+        for (Text name : pokemon_names) {
             name.setText(pokemonArrayList.get(i).getName());
             i++;
         }
