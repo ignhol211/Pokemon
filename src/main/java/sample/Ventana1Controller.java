@@ -190,8 +190,9 @@ public class Ventana1Controller {
         pokemon_panes.add(pokemon_11);
         pokemon_panes.add(pokemon_21);
 
-        //Pokemon´s name
+        //todo Create PokemonInterface class
 
+        //Pokemon´s name
         int i = 0;
         for (Text name : pokemon_names) {
             name.setText(pokemonArrayList.get(i).getName());

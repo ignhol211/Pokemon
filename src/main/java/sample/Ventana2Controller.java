@@ -145,6 +145,8 @@ public class Ventana2Controller {
         pokemon_pane.setOpacity(0.5);
     }
 
+    //todo use methods in cureClicked, tackleClicked, bodySlamClicked and scratchClicked in order to reduce code
+
     public void cureClicked(){
 
         int healthRecovered = (int) (Math.random()*(75-25));
@@ -299,11 +301,13 @@ public class Ventana2Controller {
 
     private void showAlert(Alert alert){
         Optional<ButtonType> decission = alert.showAndWait();
-        if(decission.get() == ButtonType.NO){
-            System.exit(0);
-        }else{
-            controller1.stage.close();
-            controller1.uploadPokemon(pokemonFighting);
+        if(!decission.isEmpty()) {
+            if (decission.get() == ButtonType.NO) {
+                System.exit(0);
+            } else {
+                controller1.stage.close();
+                controller1.uploadPokemon(pokemonFighting);
+            }
         }
     }
 
