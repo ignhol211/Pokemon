@@ -188,9 +188,7 @@ public class Ventana2Controller {
 
         opponent_health.setProgress((double)opponent.getHealth_points()/opponent.getMAX_HEALTH_POINTS());
 
-        System.out.println(pokemonFighting.getName() + " attacks and " +opponent.getName() + " lose " + attack + " health points");
-
-        if(opponent.getHealth_points() > 0){
+        if(opponent.getHealth_points() >= 0){
 
             pokemonFighting.setHealth_points(pokemonFighting.getHealth_points() - attack);
 
@@ -198,7 +196,7 @@ public class Ventana2Controller {
 
             System.out.println(opponent.getName() + " attacks and " +pokemonFighting.getName() + " loose " + attack + " health points");
 
-            if(pokemonFighting.getHealth_points() < 0){
+            if(pokemonFighting.getHealth_points() <= 0){
                 System.out.println(pokemonFighting.getName() + " is fainted can not fight back");
                 showAlert(alert(pokemonFighting));
             }
@@ -219,9 +217,7 @@ public class Ventana2Controller {
 
         opponent_health.setProgress((double)opponent.getHealth_points()/opponent.getMAX_HEALTH_POINTS());
 
-        System.out.println(pokemonFighting.getName() + " attacks and " +opponent.getName() + " lose " + attack + " health points");
-
-        if(opponent.getHealth_points() > 0){
+        if(opponent.getHealth_points() >= 0){
 
             attack = (int) (Math.random()*(50));
 
@@ -231,7 +227,7 @@ public class Ventana2Controller {
 
             System.out.println(opponent.getName() + " attacks and " +pokemonFighting.getName() + " loose " + attack + " health points");
 
-            if(pokemonFighting.getHealth_points() < 0){
+            if(pokemonFighting.getHealth_points() <= 0){
                 System.out.println(pokemonFighting.getName() + " is fainted can not fight back");
                 showAlert(alert(pokemonFighting));
             }
@@ -252,9 +248,7 @@ public class Ventana2Controller {
 
         opponent_health.setProgress((double)opponent.getHealth_points()/opponent.getMAX_HEALTH_POINTS());
 
-        System.out.println(pokemonFighting.getName() + " attacks and " +opponent.getName() + " lose " + attack + " health points");
-
-        if(opponent.getHealth_points() > 0){
+        if(opponent.getHealth_points() >= 0){
 
             attack = (byte) (Math.random()*(25-10));
 
@@ -264,7 +258,7 @@ public class Ventana2Controller {
 
             System.out.println(opponent.getName() + " attacks and " +pokemonFighting.getName() + " loose " + attack + " health points");
 
-            if(pokemonFighting.getHealth_points() < 0){
+            if(pokemonFighting.getHealth_points() <= 0){
                 System.out.println(pokemonFighting.getName() + " is fainted can not fight back");
                 showAlert(alert(pokemonFighting));
             }
@@ -309,7 +303,6 @@ public class Ventana2Controller {
             System.exit(0);
         }else{
             controller1.stage.close();
-            opponentsArrayList.remove(opponent);
             controller1.uploadPokemon(pokemonFighting);
         }
     }

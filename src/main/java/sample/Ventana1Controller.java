@@ -352,6 +352,7 @@ public class Ventana1Controller {
 
     public void uploadPokemon(Pokemon pokemon){
         pokemonArrayList.set(pokemon.getIndex(),pokemon);
+        pokemonToFigth = null;
         initialize();
     }
 
