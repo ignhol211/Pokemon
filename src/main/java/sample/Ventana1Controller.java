@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -346,21 +347,53 @@ public class Ventana1Controller {
             }
         }else{
             reset();
-            alert();
+            alert("It is not allowed to choose a fainted Pokemon");
         }
     }
 
     public void uploadPokemon(Pokemon pokemon){
+        pokemonToFigth = null;
         pokemonArrayList.set(pokemon.getIndex(),pokemon);
         pokemonToFigth = null;
         initialize();
     }
 
-    private void alert(){
+    private void alert(String text){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("Warning");
-        alert.setContentText("It is not allowed to choose a fainted Pokemon");
+        alert.setContentText(text);
         alert.showAndWait();
     }
 
+    //Pokedex elements
+    private PokedexController pc;
+    protected Stage stage_pokedex;
+
+    @FXML
+    public void openPokedex() {
+        if(pokemonToFigth!= null){
+            if(pokemonToFigth.getHealth_points() > 0) {
+                try {
+                    if (stage_pokedex == null || !stage_pokedex.isShowing()) {
+                        stage_pokedex = new Stage();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pokedex.fxml"));
+                        AnchorPane root = loader.load();
+                        Scene scene = new Scene(root, 730, 426);
+                        stage_pokedex.setScene(scene);
+                        stage_pokedex.show();
+                        stage_pokedex.setResizable(false);
+                        pc = loader.getController();
+                    }
+                    pc.loadPokedex(pokemonToFigth);
+                    pc.sendController(this);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }else{
+                reset();
+                alert("No Pokemon is selected to show in Pokedex");
+            }
+        }
+    }
 }
