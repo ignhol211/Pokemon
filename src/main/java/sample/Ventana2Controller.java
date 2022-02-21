@@ -89,17 +89,17 @@ public class Ventana2Controller {
             try {
                 //Opponents
                 final int OPPONENT_MAX_HEATLH = 100;
-                possible_opponent1 = new Pokemon (7,"Pidgey", (int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\pidgey.gif")),null);
+                possible_opponent1 = new Pokemon (7,"Pidgey", (int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\pidgey.gif")),null,null,null,null);
                 opponentsArrayList.add(possible_opponent1);
-                possible_opponent2 = new Pokemon (8,"Rattata",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\rattata.gif")),null);
+                possible_opponent2 = new Pokemon (8,"Rattata",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\rattata.gif")),null,null,null,null);
                 opponentsArrayList.add(possible_opponent2);
-                possible_opponent3 = new Pokemon (9,"Caterpie",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\caterpie.gif")),null);
+                possible_opponent3 = new Pokemon (9,"Caterpie",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\caterpie.gif")),null,null,null,null);
                 opponentsArrayList.add(possible_opponent3);
-                possible_opponent4 = new Pokemon (10,"Sentret",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\sentret.gif")),null);
+                possible_opponent4 = new Pokemon (10,"Sentret",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\sentret.gif")),null,null,null,null);
                 opponentsArrayList.add(possible_opponent4);
-                possible_opponent5 = new Pokemon (11,"Chinchou",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chinchou.gif")),null);
+                possible_opponent5 = new Pokemon (11,"Chinchou",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chinchou.gif")),null,null,null,null);
                 opponentsArrayList.add(possible_opponent5);
-                possible_opponent6 = new Pokemon (12,"Abra",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\abra.gif")),null);
+                possible_opponent6 = new Pokemon (12,"Abra",(int) ((Math.random()*4))+1, OPPONENT_MAX_HEATLH,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\abra.gif")),null,null,null,null);
                 opponentsArrayList.add(possible_opponent6);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -301,7 +301,7 @@ public class Ventana2Controller {
 
     private void showAlert(Alert alert){
         Optional<ButtonType> decission = alert.showAndWait();
-        if(!decission.isEmpty()) {
+        if(decission.isPresent()) {
             if (decission.get() == ButtonType.NO) {
                 System.exit(0);
             } else {

@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Pokemon {
 
@@ -13,8 +14,12 @@ public class Pokemon {
     private final Image gender;
     private final Image image;
     private final Image fighting_image;
+    private final String description;
+    private final Image firstEvolution;
+    private final Image secondEvolution;
 
-    public Pokemon(int index, String name, int level, int max_health_points, Image gender, Image image, Image fighting_image) {
+
+    public Pokemon(int index, String name, int level, int max_health_points, Image gender, Image image, Image fighting_image,String description,Image firstEvolution,Image secondEvolution) {
 
         this.INDEX = index;
         MAX_HEALTH_POINTS = max_health_points;
@@ -25,6 +30,9 @@ public class Pokemon {
         this.gender = gender;
         this.image = image;
         this.fighting_image = fighting_image;
+        this.description = description;
+        this.firstEvolution = firstEvolution;
+        this.secondEvolution = secondEvolution;
 
     }
 
@@ -57,5 +65,11 @@ public class Pokemon {
     public Image getFightingImage() { return fighting_image; }
 
     public int getIndex(){return INDEX;}
+
+    public String getDescription(){return description;}
+
+    public Image getFirstEvolution(){return firstEvolution;}
+
+    public Image getSecondEvolution(){return secondEvolution;}
 
 }

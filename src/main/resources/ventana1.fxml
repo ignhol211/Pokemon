@@ -21,7 +21,7 @@
             </Text>
             <Button id="button_exit" alignment="CENTER" layoutX="632.0" mnemonicParsing="false" onMouseClicked="#reset" prefHeight="30.0" prefWidth="70.0" text="Exit" textAlignment="CENTER" />
             <Button fx:id="button_continue" alignment="CENTER" layoutX="557.0" mnemonicParsing="false" onMouseClicked="#openBattlefield" prefHeight="30.0" prefWidth="70.0" text="Continue" textAlignment="CENTER" visible="false" />
-            <Button fx:id="button_pokedex" onMouseClicked="#openPokedex" layoutX="339.0" layoutY="4.0" mnemonicParsing="false" text="Pokedex" />
+            <Button fx:id="button_pokedex" onMouseClicked="#openPokedex" layoutX="339.0" layoutY="4.0" mnemonicParsing="false" text="Pokedex" visible="false"/>
          </Pane>
          <GridPane layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="347.0" prefWidth="730.0" style="-fx-background-color: #bbf7f3;">
             <columnConstraints>
