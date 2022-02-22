@@ -1,49 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PokedexController">
-    <ImageView fx:id="pokedex_pokemon_image" fitHeight="135.0" fitWidth="130.0" layoutX="441.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="350" style="-fx-background-color: #bbf7f3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PokedexController">
+    <ImageView fx:id="pokedex_pokemon_image" fitHeight="100.0" fitWidth="100.0" layoutX="134.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+     <Label fx:id="pokedex_pokemon_name" alignment="CENTER" contentDisplay="CENTER" layoutX="134.0" layoutY="120.0" prefHeight="17.0" prefWidth="101.0" text="Undefined" textAlignment="CENTER">
+         <font>
+           <Font size="16.0" />
+         </font>
+      <effect>
+         <DropShadow />
+      </effect>
+     </Label>
+     <Text fx:id="pokedex_pokemon_description" layoutX="4.0" layoutY="163.0" textAlignment="JUSTIFY" wrappingWidth="341.3154296875">
+       <font>
+           <Font size="18.0" />
+       </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+     </Text>
+     <Label layoutX="134.0" layoutY="215.0" text="Evolutions">
+         <font>
+           <Font size="16.0" />
+         </font>
+       <effect>
+           <Blend />
+       </effect>
+     </Label>
+    <ImageView fx:id="pokedex_pokemon_basic" fitHeight="100.0" fitWidth="100.0" layoutX="71.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true" />
+    <ImageView fx:id="pokedex_pokemon_firstEvolution" fitHeight="100.0" fitWidth="100.0" layoutX="216.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" />
+    <ImageView fx:id="pokedex_pokemon_secondEvolution" fitHeight="100.0" fitWidth="100.0" layoutX="63.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true" />
+    <ImageView fx:id="selectFavorite" fitHeight="30.0" fitWidth="30.0" layoutX="101.0" layoutY="118.0" onMouseClicked="#setFavorite" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+        <Image url="@estrella.png" />
     </ImageView>
-    <Label fx:id="pokedex_pokemon_name" alignment="CENTER" contentDisplay="CENTER" layoutX="470.0" layoutY="149.0" prefHeight="17.0" prefWidth="101.0" textAlignment="CENTER">
-        <font>
-          <Font size="14.0" />
-        </font>
-    </Label>
-    <Text fx:id="pokedex_pokemon_description" layoutX="17.0" layoutY="14.0"/>
-    <GridPane layoutX="17.0" layoutY="211.0" prefHeight="175.0" prefWidth="566.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-        <ImageView fx:id="pokedex_pokemon_basic" fitHeight="120.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
-            <GridPane.margin>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-            </GridPane.margin>
-        </ImageView>
-        <ImageView fx:id="pokedex_pokemon_firstEvolution" fitHeight="120.0" fitWidth="180.0" layoutX="10.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-            <GridPane.margin>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-            </GridPane.margin>
-        </ImageView>
-        <ImageView fx:id="pokedex_pokemon_secondEvolution" fitHeight="120.0" fitWidth="180.0" layoutX="199.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-            <GridPane.margin>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-            </GridPane.margin>
-        </ImageView>
-    </GridPane>
-    <Label layoutX="269.0" layoutY="175.0" text="Evolutions">
-        <font>
-          <Font size="18.0" />
-        </font>
-    </Label>
-</AnchorPane>
+</Pane>

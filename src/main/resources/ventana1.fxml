@@ -21,7 +21,7 @@
             </Text>
             <Button id="button_exit" alignment="CENTER" layoutX="632.0" mnemonicParsing="false" onMouseClicked="#reset" prefHeight="30.0" prefWidth="70.0" text="Exit" textAlignment="CENTER" />
             <Button fx:id="button_continue" alignment="CENTER" layoutX="557.0" mnemonicParsing="false" onMouseClicked="#openBattlefield" prefHeight="30.0" prefWidth="70.0" text="Continue" textAlignment="CENTER" visible="false" />
-            <Button fx:id="button_pokedex" onMouseClicked="#openPokedex" layoutX="339.0" layoutY="4.0" mnemonicParsing="false" text="Pokedex" visible="false"/>
+            <Button fx:id="button_pokedex" layoutX="339.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#openPokedex" text="Pokedex" visible="false" />
          </Pane>
          <GridPane layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="347.0" prefWidth="730.0" style="-fx-background-color: #bbf7f3;">
             <columnConstraints>
@@ -64,6 +64,10 @@
                      <Font size="13.0" />
                   </font>
                </TextField>
+               <ImageView fx:id="pokemon_00favorite" fitHeight="30.0" fitWidth="30.0" layoutX="17.0" layoutY="58.0"
+                          opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@estrella.png"/>
+               </ImageView>
                <ImageView fx:id="pokemon_00gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
             </Pane>
             <Pane fx:id="pokemon_10" onMouseClicked="#pokemon10Selected" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -94,6 +98,10 @@
                      <Font size="13.0" />
                   </font>
                </TextField>
+               <ImageView fx:id="pokemon_10favorite" fitHeight="30.0" fitWidth="30.0" layoutX="17.0" layoutY="58.0"
+                          opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@estrella.png"/>
+               </ImageView>
                <ImageView fx:id="pokemon_10gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
             </Pane>
             <Pane fx:id="pokemon_20" onMouseClicked="#pokemon20Selected" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
@@ -124,6 +132,10 @@
                      <Font size="13.0" />
                   </font>
                </TextField>
+               <ImageView fx:id="pokemon_20favorite" fitHeight="30.0" fitWidth="30.0" layoutX="17.0" layoutY="58.0"
+                          opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@estrella.png"/>
+               </ImageView>
                <ImageView fx:id="pokemon_20gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
             </Pane>
             <Pane fx:id="pokemon_01" onMouseClicked="#pokemon01Selected" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -155,6 +167,10 @@
                   </font>
                </TextField>
                <ImageView fx:id="pokemon_01gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+               <ImageView fx:id="pokemon_01favorite" fitHeight="30.0" fitWidth="30.0" layoutX="17.0" layoutY="58.0"
+                          opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@estrella.png"/>
+               </ImageView>
             </Pane>
             <Pane fx:id="pokemon_11" onMouseClicked="#pokemon11Selected" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
@@ -185,6 +201,10 @@
                   </font>
                </TextField>
                <ImageView fx:id="pokemon_11gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+               <ImageView fx:id="pokemon_11favorite" fitHeight="30.0" fitWidth="30.0" layoutX="17.0" layoutY="58.0"
+                          opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@estrella.png"/>
+               </ImageView>
             </Pane>
             <Pane fx:id="pokemon_21" onMouseClicked="#pokemon21Selected" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
@@ -215,6 +235,10 @@
                   </font>
                </TextField>
                <ImageView fx:id="pokemon_21gender" fitHeight="22.0" fitWidth="15.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+               <ImageView fx:id="pokemon_21favorite" fitHeight="30.0" fitWidth="30.0" layoutX="17.0" layoutY="58.0"
+                          opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@estrella.png"/>
+               </ImageView>
             </Pane>
          </GridPane>
       </Pane>

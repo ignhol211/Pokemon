@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -34,12 +33,12 @@ public class Ventana1Controller {
 
     {
         try {
-            pokemon1 = new Pokemon (1,"Charmander",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\charmander.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\charmanderFighting.gif")),"Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail.",new Image(new FileInputStream(".\\src\\main\\resources\\charmeleon.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\charizard.gif")));
-            pokemon2 = new Pokemon (2,"Squirtle",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\squirtleFighting.gif")),"After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth.",new Image(new FileInputStream(".\\src\\main\\resources\\wartortle.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\blastoise.gif")));
-            pokemon3 = new Pokemon (3,"Bulbasaur",5,125,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaurFighting.gif")),"A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.",new Image(new FileInputStream(".\\src\\main\\resources\\ivysaur.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\venusaur.gif")));
-            pokemon4 = new Pokemon (4,"Cyndaquil",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquilFighting.gif")),"It is timid, and always curls itself up in a ball. If attacked, it flares up its back for protection.",new Image(new FileInputStream(".\\src\\main\\resources\\quilava.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\typhlosion.gif")));
-            pokemon5 = new Pokemon (5,"Totodile",5,120,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\totodile.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\totodileFighting.gif")),"Its well-developed jaws are powerful and capable of crushing anything. Even its trainer must be careful. ",new Image(new FileInputStream(".\\src\\main\\resources\\croconaw.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\feraligatr.gif")));
-            pokemon6 = new Pokemon (6,"Chikorita",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\chikoritaFighting.gif")),"A sweet aroma gently wafts from the leaf on its head. It is docile and loves to soak up the sun's rays. ",new Image(new FileInputStream(".\\src\\main\\resources\\bayleef.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\meganium.gif")));
+            pokemon1 = new Pokemon (0,"Charmander",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\charmander.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\charmanderFighting.gif")),"Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail.",new Image(new FileInputStream(".\\src\\main\\resources\\charmeleon.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\charizard.gif")),false);
+            pokemon2 = new Pokemon (1,"Squirtle",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\squirtle.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\squirtleFighting.gif")),"After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth.",new Image(new FileInputStream(".\\src\\main\\resources\\wartortle.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\blastoise.gif")),false);
+            pokemon3 = new Pokemon (2,"Bulbasaur",5,125,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaur.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\bulbasaurFighting.gif")),"A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokemon.",new Image(new FileInputStream(".\\src\\main\\resources\\ivysaur.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\venusaur.gif")),false);
+            pokemon4 = new Pokemon (3,"Cyndaquil",5,130,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquil.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\cyndaquilFighting.gif")),"It is timid, and always curls itself up in a ball. If attacked, it flares up its back for protection.",new Image(new FileInputStream(".\\src\\main\\resources\\quilava.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\typhlosion.gif")),false);
+            pokemon5 = new Pokemon (4,"Totodile",5,120,new Image(new FileInputStream(".\\src\\main\\resources\\male.png")), new Image(new FileInputStream(".\\src\\main\\resources\\totodile.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\totodileFighting.gif")),"Its well-developed jaws are powerful and capable of crushing anything. Even its trainer must be careful. ",new Image(new FileInputStream(".\\src\\main\\resources\\croconaw.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\feraligatr.gif")),false);
+            pokemon6 = new Pokemon (5,"Chikorita",5,135,new Image(new FileInputStream(".\\src\\main\\resources\\female.png")), new Image(new FileInputStream(".\\src\\main\\resources\\chikorita.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\chikoritaFighting.gif")),"A sweet aroma gently wafts from the leaf on its head. It is docile and loves to soak up the sun's rays. ",new Image(new FileInputStream(".\\src\\main\\resources\\bayleef.gif")),new Image(new FileInputStream(".\\src\\main\\resources\\meganium.gif")),false);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -125,6 +124,21 @@ public class Ventana1Controller {
     @FXML
     ImageView pokemon_21gender;
 
+    //Pokemon´s favorite
+    ArrayList <ImageView> pokemon_favorite = new ArrayList<>();
+    @FXML
+    ImageView pokemon_00favorite;
+    @FXML
+    ImageView pokemon_10favorite;
+    @FXML
+    ImageView pokemon_20favorite;
+    @FXML
+    ImageView pokemon_01favorite;
+    @FXML
+    ImageView pokemon_11favorite;
+    @FXML
+    ImageView pokemon_21favorite;
+
     //Pokemon´s selection
      ArrayList <Pane> pokemon_panes = new ArrayList<>();
     @FXML
@@ -186,6 +200,13 @@ public class Ventana1Controller {
         pokemon_gender.add(pokemon_11gender);
         pokemon_gender.add(pokemon_21gender);
 
+        pokemon_favorite.add(pokemon_00favorite);
+        pokemon_favorite.add(pokemon_10favorite);
+        pokemon_favorite.add(pokemon_20favorite);
+        pokemon_favorite.add(pokemon_01favorite);
+        pokemon_favorite.add(pokemon_11favorite);
+        pokemon_favorite.add(pokemon_21favorite);
+
         pokemon_panes.add(pokemon_00);
         pokemon_panes.add(pokemon_10);
         pokemon_panes.add(pokemon_20);
@@ -233,6 +254,21 @@ public class Ventana1Controller {
             i++;
         }
 
+        //Pokemon´s favorite
+        i = 0;
+        for (ImageView favorite : pokemon_favorite){
+            favorite.setOpacity(calculateOpacity(pokemonArrayList.get(i)));
+            i++;
+        }
+
+    }
+
+    private double calculateOpacity(Pokemon pokemon) {
+        if(pokemon.getFavorite()){
+            return 1;
+        }else{
+            return 0.5;
+        }
     }
 
     private double calculate_health(Pokemon pokemon){
@@ -382,15 +418,15 @@ public class Ventana1Controller {
                     if (stage_pokedex == null || !stage_pokedex.isShowing()) {
                         stage_pokedex = new Stage();
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/pokedex.fxml"));
-                        AnchorPane root = loader.load();
-                        Scene scene = new Scene(root, 730, 426);
+                        Pane root = loader.load();
+                        Scene scene = new Scene(root, 350, 500);
                         stage_pokedex.setScene(scene);
                         stage_pokedex.show();
                         stage_pokedex.setResizable(false);
                         pc = loader.getController();
                     }
-                    pc.loadPokedex(pokemonToFigth);
                     pc.sendController(this);
+                    pc.loadPokedex(pokemonToFigth);
 
                 } catch (Exception e) {
                     e.printStackTrace();
