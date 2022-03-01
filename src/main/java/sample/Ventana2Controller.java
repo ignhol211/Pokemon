@@ -18,19 +18,18 @@ public class Ventana2Controller {
     private Pokemon opponent = null;
 
     private Ventana1Controller controller1;
+    ArrayList<Pokemon> opponentsArrayList = new ArrayList<>();
 
     @FXML
     private ImageView opponent_image;
     @FXML
     private Text opponent_name;
     @FXML
-    private Text oponent_level;
+    private Text opponent_level;
     @FXML
     private ProgressBar opponent_health;
     @FXML
     private ImageView opponent_gender;
-
-    ArrayList<Pokemon> opponentsArrayList = new ArrayList<>();
 
     //Pokemon
     @FXML
@@ -117,7 +116,7 @@ public class Ventana2Controller {
         pokemonFighting_image.setImage(pokemonToFigth.getFightingImage());
         pokemonFighting_name.setText(pokemonToFigth.getName());
         pokemonFighting_level.setText(Ventana1Controller.LEVEL+pokemonToFigth.getLevel());
-        pokemonFighting_health.setProgress((double)pokemonToFigth.getHealth_points()/pokemonToFigth.getMAX_HEALTH_POINTS());
+        pokemonFighting_health.setProgress((double)pokemonToFigth.getHealthPoints()/pokemonToFigth.getMAX_HEALTH_POINTS());
         pokemonFighting_gender.setImage(pokemonToFigth.getGender());
     }
 
@@ -125,8 +124,8 @@ public class Ventana2Controller {
 
         opponent_image.setImage(oponent.getImage());
         opponent_name.setText(oponent.getName());
-        oponent_level.setText(Ventana1Controller.LEVEL+oponent.getLevel());
-        opponent_health.setProgress(oponent.getHealth_points());
+        opponent_level.setText(Ventana1Controller.LEVEL+oponent.getLevel());
+        opponent_health.setProgress(oponent.getHealthPoints());
         opponent_gender.setImage(oponent.getGender());
 
     }
@@ -151,22 +150,22 @@ public class Ventana2Controller {
 
         int healthRecovered = (int) (Math.random()*(75-25));
 
-        pokemonFighting.setHealth_points(pokemonFighting.getHealth_points()+healthRecovered);
+        pokemonFighting.setHealthPoints(pokemonFighting.getHealthPoints()+healthRecovered);
 
-        if(pokemonFighting.getHealth_points() > pokemonFighting.getMAX_HEALTH_POINTS()){
-            pokemonFighting.setHealth_points(pokemonFighting.getMAX_HEALTH_POINTS());
+        if(pokemonFighting.getHealthPoints() > pokemonFighting.getMAX_HEALTH_POINTS()){
+            pokemonFighting.setHealthPoints(pokemonFighting.getMAX_HEALTH_POINTS());
         }
 
-        pokemonFighting_health.setProgress((double)pokemonFighting.getHealth_points()/pokemonFighting.getMAX_HEALTH_POINTS());
+        pokemonFighting_health.setProgress((double)pokemonFighting.getHealthPoints()/pokemonFighting.getMAX_HEALTH_POINTS());
 
         healthRecovered = (int) (Math.random()*(75-25));
 
-        opponent.setHealth_points(opponent.getHealth_points()+healthRecovered);
-        if(opponent.getHealth_points() > opponent.getMAX_HEALTH_POINTS()){
-            opponent.setHealth_points(opponent.getMAX_HEALTH_POINTS());
+        opponent.setHealthPoints(opponent.getHealthPoints()+healthRecovered);
+        if(opponent.getHealthPoints() > opponent.getMAX_HEALTH_POINTS()){
+            opponent.setHealthPoints(opponent.getMAX_HEALTH_POINTS());
         }
 
-        opponent_health.setProgress((double)opponent.getHealth_points()/opponent.getMAX_HEALTH_POINTS());
+        opponent_health.setProgress((double)opponent.getHealthPoints()/opponent.getMAX_HEALTH_POINTS());
 
     }
 
@@ -183,19 +182,19 @@ public class Ventana2Controller {
 
         int attack = 20;
 
-        opponent.setHealth_points(opponent.getHealth_points() - attack);
+        opponent.setHealthPoints(opponent.getHealthPoints() - attack);
 
-        opponent_health.setProgress((double)opponent.getHealth_points()/opponent.getMAX_HEALTH_POINTS());
+        opponent_health.setProgress((double)opponent.getHealthPoints()/opponent.getMAX_HEALTH_POINTS());
 
-        if(opponent.getHealth_points() >= 0){
+        if(opponent.getHealthPoints() >= 0){
 
-            pokemonFighting.setHealth_points(pokemonFighting.getHealth_points() - attack);
+            pokemonFighting.setHealthPoints(pokemonFighting.getHealthPoints() - attack);
 
-            pokemonFighting_health.setProgress((double)pokemonFighting.getHealth_points()/pokemonFighting.getMAX_HEALTH_POINTS());
+            pokemonFighting_health.setProgress((double)pokemonFighting.getHealthPoints()/pokemonFighting.getMAX_HEALTH_POINTS());
 
             controller1.uploadPokemon(pokemonFighting);
 
-            if(pokemonFighting.getHealth_points() <= 0){
+            if(pokemonFighting.getHealthPoints() <= 0){
                 showAlert(alert(pokemonFighting));
             }
 
@@ -210,21 +209,21 @@ public class Ventana2Controller {
 
         int attack = (int) (Math.random()*(50));
 
-        opponent.setHealth_points(opponent.getHealth_points() - attack);
+        opponent.setHealthPoints(opponent.getHealthPoints() - attack);
 
-        opponent_health.setProgress((double)opponent.getHealth_points()/opponent.getMAX_HEALTH_POINTS());
+        opponent_health.setProgress((double)opponent.getHealthPoints()/opponent.getMAX_HEALTH_POINTS());
 
-        if(opponent.getHealth_points() >= 0){
+        if(opponent.getHealthPoints() >= 0){
 
             attack = (int) (Math.random()*(50));
 
-            pokemonFighting.setHealth_points(pokemonFighting.getHealth_points() - attack);
+            pokemonFighting.setHealthPoints(pokemonFighting.getHealthPoints() - attack);
 
-            pokemonFighting_health.setProgress((double)pokemonFighting.getHealth_points()/pokemonFighting.getMAX_HEALTH_POINTS());
+            pokemonFighting_health.setProgress((double)pokemonFighting.getHealthPoints()/pokemonFighting.getMAX_HEALTH_POINTS());
 
             controller1.uploadPokemon(pokemonFighting);
 
-            if(pokemonFighting.getHealth_points() <= 0){
+            if(pokemonFighting.getHealthPoints() <= 0){
                 showAlert(alert(pokemonFighting));
             }
 
@@ -239,21 +238,21 @@ public class Ventana2Controller {
 
         byte attack = (byte) (Math.random()*(25-10));
 
-        opponent.setHealth_points(opponent.getHealth_points() - attack);
+        opponent.setHealthPoints(opponent.getHealthPoints() - attack);
 
-        opponent_health.setProgress((double)opponent.getHealth_points()/opponent.getMAX_HEALTH_POINTS());
+        opponent_health.setProgress((double)opponent.getHealthPoints()/opponent.getMAX_HEALTH_POINTS());
 
-        if(opponent.getHealth_points() >= 0){
+        if(opponent.getHealthPoints() >= 0){
 
             attack = (byte) (Math.random()*(25-10));
 
-            pokemonFighting.setHealth_points(pokemonFighting.getHealth_points() - attack);
+            pokemonFighting.setHealthPoints(pokemonFighting.getHealthPoints() - attack);
 
-            pokemonFighting_health.setProgress((double)pokemonFighting.getHealth_points()/pokemonFighting.getMAX_HEALTH_POINTS());
+            pokemonFighting_health.setProgress((double)pokemonFighting.getHealthPoints()/pokemonFighting.getMAX_HEALTH_POINTS());
 
             controller1.uploadPokemon(pokemonFighting);
 
-            if(pokemonFighting.getHealth_points() <= 0){
+            if(pokemonFighting.getHealthPoints() <= 0){
                 showAlert(alert(pokemonFighting));
             }
 
@@ -275,7 +274,7 @@ public class Ventana2Controller {
     }
 
     public void pokemonFighting_ps_entered() {
-        pokemonFighting_ps.setText(""+pokemonFighting.getHealth_points());
+        pokemonFighting_ps.setText(""+pokemonFighting.getHealthPoints());
     }
 
     public void pokemonFighting_ps_exited() {
@@ -283,7 +282,7 @@ public class Ventana2Controller {
     }
 
     public void opponent_ps_entered() {
-        opponent_ps.setText(""+opponent.getHealth_points());
+        opponent_ps.setText(""+opponent.getHealthPoints());
     }
 
     public void opponent_ps_exited() {
@@ -296,7 +295,7 @@ public class Ventana2Controller {
             if (decission.get() == ButtonType.NO) {
                 System.exit(0);
             } else {
-                controller1.stage.close();
+                controller1.stageBattlefield.close();
                 controller1.uploadPokemon(pokemonFighting);
             }
         }

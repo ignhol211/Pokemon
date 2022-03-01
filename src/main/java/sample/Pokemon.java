@@ -9,10 +9,10 @@ public class Pokemon {
 
     private final String name;
     private final int level;
-    private int health_points;
+    private int healthPoints;
     private final Image gender;
     private final Image image;
-    private final Image fighting_image;
+    private final Image fightingImage;
     private final String description;
     private final Image firstEvolution;
     private final Image secondEvolution;
@@ -26,10 +26,10 @@ public class Pokemon {
 
         this.name = name;
         this.level = level;
-        this.health_points = MAX_HEALTH_POINTS;
+        this.healthPoints = MAX_HEALTH_POINTS;
         this.gender = gender;
         this.image = image;
-        this.fighting_image = fighting_image;
+        this.fightingImage = fighting_image;
         this.description = description;
         this.firstEvolution = firstEvolution;
         this.secondEvolution = secondEvolution;
@@ -49,12 +49,12 @@ public class Pokemon {
         return MAX_HEALTH_POINTS;
     }
 
-    public int getHealth_points() {
-        return health_points;
+    public int getHealthPoints() {
+        return healthPoints;
     }
 
-    public void setHealth_points(int health_points) {
-        this.health_points = health_points;
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
     }
 
     public Image getGender() {
@@ -63,7 +63,7 @@ public class Pokemon {
 
     public Image getImage() { return image; }
 
-    public Image getFightingImage() { return fighting_image; }
+    public Image getFightingImage() { return fightingImage; }
 
     public int getIndex(){return INDEX;}
 

@@ -272,7 +272,7 @@ public class Ventana1Controller {
     }
 
     private double calculate_health(Pokemon pokemon){
-        return (double) pokemon.getHealth_points()/ pokemon.getMAX_HEALTH_POINTS();
+        return (double) pokemon.getHealthPoints()/ pokemon.getMAX_HEALTH_POINTS();
     }
 
     @FXML
@@ -363,25 +363,25 @@ public class Ventana1Controller {
     private void selectedPokemon(Pane background){background.setStyle("-fx-background-color:   #13abf4");}
 
     //Battlefield elements
-    private Ventana2Controller v2c;
-    protected Stage stage;
+    private Ventana2Controller ventana2Controller;
+    protected Stage stageBattlefield;
 
     @FXML
     protected void openBattlefield(){
-        if(pokemonToFigth.getHealth_points() > 0) {
+        if(pokemonToFigth.getHealthPoints() > 0) {
             try {
-                if (stage == null || !stage.isShowing()) {
-                    stage = new Stage();
+                if (stageBattlefield == null || !stageBattlefield.isShowing()) {
+                    stageBattlefield = new Stage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/ventana2.fxml"));
                     BorderPane root = loader.load();
                     Scene scene = new Scene(root, 730, 426);
-                    stage.setScene(scene);
-                    stage.show();
-                    stage.setResizable(false);
-                    v2c = loader.getController();
+                    stageBattlefield.setScene(scene);
+                    stageBattlefield.show();
+                    stageBattlefield.setResizable(false);
+                    ventana2Controller = loader.getController();
                 }
-                v2c.loadBattlefield(pokemonToFigth);
-                v2c.sendController(this);
+                ventana2Controller.loadBattlefield(pokemonToFigth);
+                ventana2Controller.sendController(this);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -407,26 +407,26 @@ public class Ventana1Controller {
     }
 
     //Pokedex elements
-    private PokedexController pc;
-    protected Stage stage_pokedex;
+    private PokedexController pokedexController;
+    protected Stage stagePokedex;
 
     @FXML
     public void openPokedex() {
         if(pokemonToFigth!= null){
-            if(pokemonToFigth.getHealth_points() > 0) {
+            if(pokemonToFigth.getHealthPoints() > 0) {
                 try {
-                    if (stage_pokedex == null || !stage_pokedex.isShowing()) {
-                        stage_pokedex = new Stage();
+                    if (stagePokedex == null || !stagePokedex.isShowing()) {
+                        stagePokedex = new Stage();
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/pokedex.fxml"));
                         Pane root = loader.load();
                         Scene scene = new Scene(root, 350, 500);
-                        stage_pokedex.setScene(scene);
-                        stage_pokedex.show();
-                        stage_pokedex.setResizable(false);
-                        pc = loader.getController();
+                        stagePokedex.setScene(scene);
+                        stagePokedex.show();
+                        stagePokedex.setResizable(false);
+                        pokedexController = loader.getController();
                     }
-                    pc.sendController(this);
-                    pc.loadPokedex(pokemonToFigth);
+                    pokedexController.sendController(this);
+                    pokedexController.loadPokedex(pokemonToFigth);
 
                 } catch (Exception e) {
                     e.printStackTrace();
